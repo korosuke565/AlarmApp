@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8BBEBB375DEFA76897B75DA5 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB30BEFC32ABE3D57D70ED54 /* Pods.framework */; };
+		3B51316F3A1ACF119DF08242 /* Pods_AlarmApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D4BF94E57937B7F0BD5881 /* Pods_AlarmApp.framework */; };
 		B1AC1C261C76A3FF0078EDA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C251C76A3FF0078EDA0 /* AppDelegate.swift */; };
 		B1AC1C281C76A3FF0078EDA0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C271C76A3FF0078EDA0 /* FirstViewController.swift */; };
 		B1AC1C2A1C76A3FF0078EDA0 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C291C76A3FF0078EDA0 /* ChartViewController.swift */; };
@@ -22,9 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6CF6E964A479E10FD278F359 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		A9D608E411A00D09D8D5B94B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		B1AC1C221C76A3FF0078EDA0 /* tabTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tabTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35A4598FBD9E91B651A83860 /* Pods-AlarmApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlarmApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlarmApp/Pods-AlarmApp.release.xcconfig"; sourceTree = "<group>"; };
+		454B4C5F471B0678CE07D45B /* Pods-AlarmApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlarmApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlarmApp/Pods-AlarmApp.debug.xcconfig"; sourceTree = "<group>"; };
+		66D4BF94E57937B7F0BD5881 /* Pods_AlarmApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlarmApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1AC1C221C76A3FF0078EDA0 /* AlarmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AC1C251C76A3FF0078EDA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1AC1C271C76A3FF0078EDA0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		B1AC1C291C76A3FF0078EDA0 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
@@ -45,27 +46,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BBEBB375DEFA76897B75DA5 /* Pods.framework in Frameworks */,
+				3B51316F3A1ACF119DF08242 /* Pods_AlarmApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E590A65846C82A4E9BB25B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				454B4C5F471B0678CE07D45B /* Pods-AlarmApp.debug.xcconfig */,
+				35A4598FBD9E91B651A83860 /* Pods-AlarmApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B1AC1C191C76A3FF0078EDA0 = {
 			isa = PBXGroup;
 			children = (
 				B1AC1C241C76A3FF0078EDA0 /* AlarmApp */,
 				B1AC1C231C76A3FF0078EDA0 /* Products */,
-				D02658B7CAF7EB8ADFEED553 /* Pods */,
 				C34C9DA2DCAB2BD01B6E1B02 /* Frameworks */,
+				9E590A65846C82A4E9BB25B3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		B1AC1C231C76A3FF0078EDA0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B1AC1C221C76A3FF0078EDA0 /* tabTest.app */,
+				B1AC1C221C76A3FF0078EDA0 /* AlarmApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,40 +104,32 @@
 			isa = PBXGroup;
 			children = (
 				BB30BEFC32ABE3D57D70ED54 /* Pods.framework */,
+				66D4BF94E57937B7F0BD5881 /* Pods_AlarmApp.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D02658B7CAF7EB8ADFEED553 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6CF6E964A479E10FD278F359 /* Pods.debug.xcconfig */,
-				A9D608E411A00D09D8D5B94B /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B1AC1C211C76A3FF0078EDA0 /* tabTest */ = {
+		B1AC1C211C76A3FF0078EDA0 /* AlarmApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B1AC1C361C76A3FF0078EDA0 /* Build configuration list for PBXNativeTarget "tabTest" */;
+			buildConfigurationList = B1AC1C361C76A3FF0078EDA0 /* Build configuration list for PBXNativeTarget "AlarmApp" */;
 			buildPhases = (
-				EC9205BBF97F7B666F9C91DF /* Check Pods Manifest.lock */,
+				BF65EE615933469CC7FB72A2 /* 📦 Check Pods Manifest.lock */,
 				B1AC1C1E1C76A3FF0078EDA0 /* Sources */,
 				B1AC1C1F1C76A3FF0078EDA0 /* Frameworks */,
 				B1AC1C201C76A3FF0078EDA0 /* Resources */,
-				96BECE62D7C6859CF599161B /* Embed Pods Frameworks */,
-				21C4B9644C26D20FD411C5D8 /* Copy Pods Resources */,
+				4C1397A9B4E97AB35DBDE880 /* 📦 Embed Pods Frameworks */,
+				0F0E76CE74DA1EBDB6B4C075 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = tabTest;
+			name = AlarmApp;
 			productName = tabTest;
-			productReference = B1AC1C221C76A3FF0078EDA0 /* tabTest.app */;
+			productReference = B1AC1C221C76A3FF0078EDA0 /* AlarmApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -146,7 +148,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B1AC1C1D1C76A3FF0078EDA0 /* Build configuration list for PBXProject "tabTest" */;
+			buildConfigurationList = B1AC1C1D1C76A3FF0078EDA0 /* Build configuration list for PBXProject "AlarmApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -159,7 +161,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B1AC1C211C76A3FF0078EDA0 /* tabTest */,
+				B1AC1C211C76A3FF0078EDA0 /* AlarmApp */,
 			);
 		};
 /* End PBXProject section */
@@ -179,44 +181,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		21C4B9644C26D20FD411C5D8 /* Copy Pods Resources */ = {
+		0F0E76CE74DA1EBDB6B4C075 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlarmApp/Pods-AlarmApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		96BECE62D7C6859CF599161B /* Embed Pods Frameworks */ = {
+		4C1397A9B4E97AB35DBDE880 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlarmApp/Pods-AlarmApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EC9205BBF97F7B666F9C91DF /* Check Pods Manifest.lock */ = {
+		BF65EE615933469CC7FB72A2 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,32 +348,32 @@
 		};
 		B1AC1C371C76A3FF0078EDA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6CF6E964A479E10FD278F359 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 454B4C5F471B0678CE07D45B /* Pods-AlarmApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tabTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tsuyoshi.tonobe.tabTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AlarmApp;
 			};
 			name = Debug;
 		};
 		B1AC1C381C76A3FF0078EDA0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9D608E411A00D09D8D5B94B /* Pods.release.xcconfig */;
+			baseConfigurationReference = 35A4598FBD9E91B651A83860 /* Pods-AlarmApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tabTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tsuyoshi.tonobe.tabTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AlarmApp;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B1AC1C1D1C76A3FF0078EDA0 /* Build configuration list for PBXProject "tabTest" */ = {
+		B1AC1C1D1C76A3FF0078EDA0 /* Build configuration list for PBXProject "AlarmApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B1AC1C341C76A3FF0078EDA0 /* Debug */,
@@ -380,7 +382,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B1AC1C361C76A3FF0078EDA0 /* Build configuration list for PBXNativeTarget "tabTest" */ = {
+		B1AC1C361C76A3FF0078EDA0 /* Build configuration list for PBXNativeTarget "AlarmApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B1AC1C371C76A3FF0078EDA0 /* Debug */,
