@@ -1,22 +1,19 @@
-//
-//  ThirdViewController.swift
-//  tabTest
-//
-//  Created by TsuyoshiTonobe on 2016/02/19.
-//  Copyright © 2016年 TsuyoshiTonobe. All rights reserved.
-//
-
 import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
+    // Tableで使用する配列を定義する.
+    let dataInSection = [["バイブレーション", "音量"],["musicA", "musicB", "musicC", "musicD"]]
+    
+    // Sectionで使用する配列を定義する.
+    private let mySections:[String] = ["音の設定", "音楽"]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,33 +21,40 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //セクションの数を返す
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return  mySections.count
+    }
+    
+    //セクションのタイトルを返す
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return mySections[section]
+    }
+    
+    //セルが選択された際に呼び出される
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        //swiftでの多重配列の扱いについて調べる
+        if indexPath.section == 0 {
+            print("Value: \(dataInSection[0][indexPath.row])")
+        } else if indexPath.section == 1 {
+            print("Value: \(dataInSection[1][indexPath.row])")
+        }
+        
+    }
+    
+    
     //各セクションのセルの数を返す
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //とりあえず3個の値を返す
-        return 3
+        return dataInSection[section].count
     }
     
     //各セルの内容を返す
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //セルのスタイルを設定する
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        
-        //switch文に後で変更
-        var identifier = ""
-        if indexPath.row == 0 {
-            //各セルに値を設定する
-            cell.textLabel?.text = "アラーム"
-            identifier = "Cell1"
-        } else if indexPath.row == 1 {
-            cell.textLabel?.text = "音楽"
-            identifier = "Cell2"
-        } else {
-            cell.textLabel?.text = "朝への意気込み"
-            identifier = "Cell3"
-        }
-        
-        //後で変更
-//        let cell = tableView.dequeueReusableCellWithIdentifier() as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath) as UITableViewCell
+        var test = dataInSection[indexPath.section]
+        cell.textLabel?.text = test[indexPath.row]
         return cell
     }
 
