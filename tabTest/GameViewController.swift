@@ -1,11 +1,3 @@
-//
-//  GameViewController.swift
-//  tabTest
-//
-//  Created by TsuyoshiTonobe on 2016/02/25.
-//  Copyright © 2016年 TsuyoshiTonobe. All rights reserved.
-//
-
 import UIKit
 import CoreMotion
 import RealmSwift

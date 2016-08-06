@@ -1,11 +1,13 @@
 import UIKit
+import MediaPlayer
 
-class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
+class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, MPMediaPickerControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    var player = MPMusicPlayerController()
     
     // Tableで使用する配列を定義する.
-    let dataInSection = [["バイブレーション", "音量"],["musicA", "musicB", "musicC", "musicD"]]
+    let dataInSection = [["バイブレーション", "音量"],["iPhoneからmusicを選択", "musicB", "musicC", "musicD"]]
     
     // Sectionで使用する配列を定義する.
     private let mySections:[String] = ["音の設定", "音楽"]
@@ -13,6 +15,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        player = MPMusicPlayerController.applicationMusicPlayer()
 
     }
 
@@ -41,7 +45,32 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         } else if indexPath.section == 1 {
             print("Value: \(dataInSection[1][indexPath.row])")
         }
+        //sectionが1かつrowが0の時の処理を書こう
+        if(indexPath.section == 1 && indexPath.row == 0){
+            print("音楽を選ぶ処理を加える")
+            let picker = MPMediaPickerController()
+            picker.delegate = self
+            picker.allowsPickingMultipleItems = false
+            presentViewController(picker, animated: true, completion: nil)
+        }
         
+        
+    }
+    
+    //メディアアイテムピッカーでアイテムを選択完了した時に呼び出される
+    func mediaPicker(mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
+        
+        //選択した曲情報がmediaItemCollectionに入ってるのでこれをplayerにセット
+        player.setQueueWithItemCollection(mediaItemCollection)
+        //再生開始
+        player.play()
+        //ピッカーを閉じ破棄する
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //選択がキャンセルされた場合に呼び出される
+    func mediaPickerDidCancel(mediaPicker: MPMediaPickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     
