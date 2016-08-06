@@ -1,5 +1,6 @@
 import UIKit
 import MediaPlayer
+import AVFoundation
 
 class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, MPMediaPickerControllerDelegate {
     
@@ -7,16 +8,56 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     var player = MPMusicPlayerController()
     
     // Tableで使用する配列を定義する.
-    let dataInSection = [["バイブレーション", "音量"],["iPhoneからmusicを選択", "musicB", "musicC", "musicD"]]
+    let dataInSection = [["バイブレーション", "音量"],["iPhoneからmusicを選択", "天使の夢", "夢見るクジラ", "南十字星","森を流れる川","春の予感","小春日和","スフィンクス","神々の宿る場所"]]
     
     // Sectionで使用する配列を定義する.
     private let mySections:[String] = ["音の設定", "音楽"]
     
+    // 音楽の設定
+    let audioPath1 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("天使の夢", ofType: "mp3")!)
+    let audioPath2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("夢見るクジラ", ofType: "mp3")!)
+    let audioPath3 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("南十字星", ofType: "mp3")!)
+    let audioPath4 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("森を流れる川", ofType: "mp3")!)
+    let audioPath5 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("春の予感", ofType: "mp3")!)
+    let audioPath6 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("小春日和", ofType: "mp3")!)
+    let audioPath7 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("スフィンクス", ofType: "mp3")!)
+    let audioPath8 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("神々の宿る場所", ofType: "mp3")!)
+    
+    // プレイヤーの準備
+    var audioPlayer1 = AVAudioPlayer()
+    var audioPlayer2 = AVAudioPlayer()
+    var audioPlayer3 = AVAudioPlayer()
+    var audioPlayer4 = AVAudioPlayer()
+    var audioPlayer5 = AVAudioPlayer()
+    var audioPlayer6 = AVAudioPlayer()
+    var audioPlayer7 = AVAudioPlayer()
+    var audioPlayer8 = AVAudioPlayer()
+
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Settings Screen")
         
         player = MPMusicPlayerController.applicationMusicPlayer()
+        // 曲再生の準備
+        audioPlayer1 = try! AVAudioPlayer(contentsOfURL: audioPath1)
+        audioPlayer1.prepareToPlay()
+        audioPlayer2 = try! AVAudioPlayer(contentsOfURL: audioPath2)
+        audioPlayer2.prepareToPlay()
+        audioPlayer3 = try! AVAudioPlayer(contentsOfURL: audioPath3)
+        audioPlayer3.prepareToPlay()
+        audioPlayer4 = try! AVAudioPlayer(contentsOfURL: audioPath4)
+        audioPlayer4.prepareToPlay()
+        audioPlayer5 = try! AVAudioPlayer(contentsOfURL: audioPath5)
+        audioPlayer5.prepareToPlay()
+        audioPlayer6 = try! AVAudioPlayer(contentsOfURL: audioPath6)
+        audioPlayer6.prepareToPlay()
+        audioPlayer7 = try! AVAudioPlayer(contentsOfURL: audioPath7)
+        audioPlayer7.prepareToPlay()
+        audioPlayer8 = try! AVAudioPlayer(contentsOfURL: audioPath8)
+        audioPlayer8.prepareToPlay()
 
     }
 
@@ -52,9 +93,24 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
             picker.delegate = self
             picker.allowsPickingMultipleItems = false
             presentViewController(picker, animated: true, completion: nil)
+            
+        } else if(indexPath.section == 1 && indexPath.row == 1) {
+            audioPlayer1.play()
+        } else if(indexPath.section == 1 && indexPath.row == 2) {
+            audioPlayer2.play()
+        } else if(indexPath.section == 1 && indexPath.row == 3) {
+            audioPlayer3.play()
+        } else if(indexPath.section == 1 && indexPath.row == 4) {
+            audioPlayer4.play()
+        } else if(indexPath.section == 1 && indexPath.row == 5) {
+            audioPlayer5.play()
+        } else if(indexPath.section == 1 && indexPath.row == 6) {
+            audioPlayer6.play()
+        } else if(indexPath.section == 1 && indexPath.row == 7) {
+            audioPlayer7.play()
+        } else if(indexPath.section == 1 && indexPath.row == 8) {
+            audioPlayer8.play()
         }
-        
-        
     }
     
     //メディアアイテムピッカーでアイテムを選択完了した時に呼び出される
@@ -86,5 +142,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         cell.textLabel?.text = test[indexPath.row]
         return cell
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "backToTop" {
+            //遷移先のコントローラを取り出す
+            let nav = segue.destinationViewController as! UINavigationController
+            let first = nav.topViewController as! FirstViewController
+            first.test = "korosuke"
+            
+        }
+    }
 }

@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3B51316F3A1ACF119DF08242 /* Pods_AlarmApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D4BF94E57937B7F0BD5881 /* Pods_AlarmApp.framework */; };
+		B128BF811D55B3D40067C1E5 /* 天使の夢.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF801D55B3D40067C1E5 /* 天使の夢.mp3 */; };
+		B128BF831D55B3DA0067C1E5 /* 夢見るクジラ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF821D55B3DA0067C1E5 /* 夢見るクジラ.mp3 */; };
+		B128BF851D55B3DF0067C1E5 /* 南十字星.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF841D55B3DF0067C1E5 /* 南十字星.mp3 */; };
+		B128BF871D55B3E50067C1E5 /* 森を流れる川.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF861D55B3E50067C1E5 /* 森を流れる川.mp3 */; };
+		B128BF891D55B3EB0067C1E5 /* 神々の宿る場所.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF881D55B3EB0067C1E5 /* 神々の宿る場所.mp3 */; };
+		B128BF8B1D55B3F20067C1E5 /* スフィンクス.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF8A1D55B3F20067C1E5 /* スフィンクス.mp3 */; };
+		B128BF8D1D55B3F70067C1E5 /* 小春日和.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF8C1D55B3F70067C1E5 /* 小春日和.mp3 */; };
+		B128BF8F1D55B3FC0067C1E5 /* 春の予感.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF8E1D55B3FC0067C1E5 /* 春の予感.mp3 */; };
 		B1AC1C261C76A3FF0078EDA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C251C76A3FF0078EDA0 /* AppDelegate.swift */; };
 		B1AC1C281C76A3FF0078EDA0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C271C76A3FF0078EDA0 /* FirstViewController.swift */; };
 		B1AC1C2A1C76A3FF0078EDA0 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C291C76A3FF0078EDA0 /* ChartViewController.swift */; };
@@ -25,6 +33,14 @@
 		35A4598FBD9E91B651A83860 /* Pods-AlarmApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlarmApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlarmApp/Pods-AlarmApp.release.xcconfig"; sourceTree = "<group>"; };
 		454B4C5F471B0678CE07D45B /* Pods-AlarmApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlarmApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlarmApp/Pods-AlarmApp.debug.xcconfig"; sourceTree = "<group>"; };
 		66D4BF94E57937B7F0BD5881 /* Pods_AlarmApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlarmApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B128BF801D55B3D40067C1E5 /* 天使の夢.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "天使の夢.mp3"; sourceTree = "<group>"; };
+		B128BF821D55B3DA0067C1E5 /* 夢見るクジラ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "夢見るクジラ.mp3"; sourceTree = "<group>"; };
+		B128BF841D55B3DF0067C1E5 /* 南十字星.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "南十字星.mp3"; sourceTree = "<group>"; };
+		B128BF861D55B3E50067C1E5 /* 森を流れる川.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "森を流れる川.mp3"; sourceTree = "<group>"; };
+		B128BF881D55B3EB0067C1E5 /* 神々の宿る場所.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "神々の宿る場所.mp3"; sourceTree = "<group>"; };
+		B128BF8A1D55B3F20067C1E5 /* スフィンクス.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "スフィンクス.mp3"; sourceTree = "<group>"; };
+		B128BF8C1D55B3F70067C1E5 /* 小春日和.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "小春日和.mp3"; sourceTree = "<group>"; };
+		B128BF8E1D55B3FC0067C1E5 /* 春の予感.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "春の予感.mp3"; sourceTree = "<group>"; };
 		B1AC1C221C76A3FF0078EDA0 /* AlarmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AC1C251C76A3FF0078EDA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1AC1C271C76A3FF0078EDA0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +78,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B128BF7F1D55B2AE0067C1E5 /* musics */ = {
+			isa = PBXGroup;
+			children = (
+				B1AC1C3B1C76AC290078EDA0 /* test.mp3 */,
+				B128BF801D55B3D40067C1E5 /* 天使の夢.mp3 */,
+				B128BF821D55B3DA0067C1E5 /* 夢見るクジラ.mp3 */,
+				B128BF841D55B3DF0067C1E5 /* 南十字星.mp3 */,
+				B128BF881D55B3EB0067C1E5 /* 神々の宿る場所.mp3 */,
+				B128BF861D55B3E50067C1E5 /* 森を流れる川.mp3 */,
+				B128BF8A1D55B3F20067C1E5 /* スフィンクス.mp3 */,
+				B128BF8E1D55B3FC0067C1E5 /* 春の予感.mp3 */,
+				B128BF8C1D55B3F70067C1E5 /* 小春日和.mp3 */,
+			);
+			name = musics;
+			sourceTree = "<group>";
+		};
 		B1AC1C191C76A3FF0078EDA0 = {
 			isa = PBXGroup;
 			children = (
@@ -83,8 +115,8 @@
 		B1AC1C241C76A3FF0078EDA0 /* AlarmApp */ = {
 			isa = PBXGroup;
 			children = (
+				B128BF7F1D55B2AE0067C1E5 /* musics */,
 				B1AC1C251C76A3FF0078EDA0 /* AppDelegate.swift */,
-				B1AC1C3B1C76AC290078EDA0 /* test.mp3 */,
 				B1AC1C271C76A3FF0078EDA0 /* FirstViewController.swift */,
 				B1B7B85E1C7DAE1F00EB293C /* ModalViewController.swift */,
 				B1DA630A1C7ED01C005EE71D /* GameViewController.swift */,
@@ -171,10 +203,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B128BF891D55B3EB0067C1E5 /* 神々の宿る場所.mp3 in Resources */,
+				B128BF8D1D55B3F70067C1E5 /* 小春日和.mp3 in Resources */,
 				B1AC1C321C76A3FF0078EDA0 /* LaunchScreen.storyboard in Resources */,
+				B128BF811D55B3D40067C1E5 /* 天使の夢.mp3 in Resources */,
 				B1AC1C2F1C76A3FF0078EDA0 /* Assets.xcassets in Resources */,
+				B128BF8B1D55B3F20067C1E5 /* スフィンクス.mp3 in Resources */,
+				B128BF851D55B3DF0067C1E5 /* 南十字星.mp3 in Resources */,
 				B1AC1C3C1C76AC290078EDA0 /* test.mp3 in Resources */,
+				B128BF8F1D55B3FC0067C1E5 /* 春の予感.mp3 in Resources */,
+				B128BF871D55B3E50067C1E5 /* 森を流れる川.mp3 in Resources */,
 				B1AC1C2D1C76A3FF0078EDA0 /* Main.storyboard in Resources */,
+				B128BF831D55B3DA0067C1E5 /* 夢見るクジラ.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

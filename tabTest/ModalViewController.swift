@@ -1,11 +1,3 @@
-//
-//  ModalViewController.swift
-//  tabTest
-//
-//  Created by TsuyoshiTonobe on 2016/02/24.
-//  Copyright © 2016年 TsuyoshiTonobe. All rights reserved.
-//
-
 import UIKit
 import AVFoundation
 
@@ -114,14 +106,4 @@ class ModalViewController: UIViewController {
 
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
