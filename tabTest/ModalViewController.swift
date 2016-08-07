@@ -4,13 +4,8 @@ import AVFoundation
 class ModalViewController: UIViewController {
     //起床時間
     var wakeUpTime : NSDate? = nil
+    var audioPlayer = AVAudioPlayer()
     
-    
-    // 音ファイルのpathの設定
-    var audioPath = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("test", ofType: "mp3")!)
-    // プレイヤーの準備
-    var player = AVAudioPlayer()
-
     
     // FirstViewControllerからの値を保持する変数
     var receiveTime = ""
@@ -27,10 +22,6 @@ class ModalViewController: UIViewController {
         
         // 時間の管理
         _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
-        
-        // 曲再生の準備
-        player = try! AVAudioPlayer(contentsOfURL: audioPath)
-        player.prepareToPlay()
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,21 +71,34 @@ class ModalViewController: UIViewController {
         
         //アラートを表示
         presentViewController(alert,animated: true, completion: nil)
-        //アラームの再生
-        player.play()
+  
+        playSound("test")
     
     }
     
     
     func alermStop() {
-        player.stop()
+        audioPlayer.stop()
         //曲を頭に戻す
-        player.currentTime = 0
+        audioPlayer.currentTime = 0
         //起床時間を取得
         wakeUpTime = NSDate()
         
         self.performSegueWithIdentifier("GameSegue", sender: nil)
 
+    }
+    
+    //soundtest関数
+    func playSound(soundName: String){
+        let sounds = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(soundName, ofType: "mp3")!)
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOfURL: sounds)
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        } catch{
+            print("Error getting the audio file")
+            
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

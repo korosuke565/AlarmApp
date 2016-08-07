@@ -1,25 +1,11 @@
 import UIKit
-import AVFoundation
 import RealmSwift
 
-class FirstViewController: UIViewController, AVAudioPlayerDelegate {
+class FirstViewController: UIViewController{
     
     
     //Realmインスタンスを生成
     let realm = try! Realm()
-    
-    //とりあえずの変数
-    var test = "first test"
-    
-//    convenience init(tes: String) {
-////        var audioPath2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(tes, ofType: "mp3")!)
-//    }
-
-    var audioPath = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("test", ofType: "mp3")!)
-    
- 
-    // プレイヤーの準備
-    var player = AVAudioPlayer()
     
     @IBOutlet weak var myDP: UIDatePicker!
     @IBOutlet weak var myLabel: UILabel!
@@ -59,16 +45,12 @@ class FirstViewController: UIViewController, AVAudioPlayerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(test)
+     
         // Do any additional setup after loading the view, typically from a nib.
         
         // 起動した時点の時刻をmyLabelに反映
         // 時間の管理
         _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
-        
-        // 曲再生の準備
-        player = try! AVAudioPlayer(contentsOfURL: audioPath)
-        player.prepareToPlay()
         
     }
     

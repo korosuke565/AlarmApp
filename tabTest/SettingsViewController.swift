@@ -6,6 +6,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     var player = MPMusicPlayerController()
+    var audioPlayer = AVAudioPlayer()
     
     // Tableで使用する配列を定義する.
     let dataInSection = [["バイブレーション", "音量"],["iPhoneからmusicを選択", "天使の夢", "夢見るクジラ", "南十字星","森を流れる川","春の予感","小春日和","スフィンクス","神々の宿る場所"]]
@@ -13,52 +14,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     // Sectionで使用する配列を定義する.
     private let mySections:[String] = ["音の設定", "音楽"]
     
-    // 音楽の設定
-    let audioPath1 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("天使の夢", ofType: "mp3")!)
-    let audioPath2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("夢見るクジラ", ofType: "mp3")!)
-    let audioPath3 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("南十字星", ofType: "mp3")!)
-    let audioPath4 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("森を流れる川", ofType: "mp3")!)
-    let audioPath5 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("春の予感", ofType: "mp3")!)
-    let audioPath6 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("小春日和", ofType: "mp3")!)
-    let audioPath7 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("スフィンクス", ofType: "mp3")!)
-    let audioPath8 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("神々の宿る場所", ofType: "mp3")!)
+    //選ばれた音楽の番号
+    var selectedMusic = ""
     
-    // プレイヤーの準備
-    var audioPlayer1 = AVAudioPlayer()
-    var audioPlayer2 = AVAudioPlayer()
-    var audioPlayer3 = AVAudioPlayer()
-    var audioPlayer4 = AVAudioPlayer()
-    var audioPlayer5 = AVAudioPlayer()
-    var audioPlayer6 = AVAudioPlayer()
-    var audioPlayer7 = AVAudioPlayer()
-    var audioPlayer8 = AVAudioPlayer()
-
-
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Settings Screen")
         
         player = MPMusicPlayerController.applicationMusicPlayer()
-        // 曲再生の準備
-        audioPlayer1 = try! AVAudioPlayer(contentsOfURL: audioPath1)
-        audioPlayer1.prepareToPlay()
-        audioPlayer2 = try! AVAudioPlayer(contentsOfURL: audioPath2)
-        audioPlayer2.prepareToPlay()
-        audioPlayer3 = try! AVAudioPlayer(contentsOfURL: audioPath3)
-        audioPlayer3.prepareToPlay()
-        audioPlayer4 = try! AVAudioPlayer(contentsOfURL: audioPath4)
-        audioPlayer4.prepareToPlay()
-        audioPlayer5 = try! AVAudioPlayer(contentsOfURL: audioPath5)
-        audioPlayer5.prepareToPlay()
-        audioPlayer6 = try! AVAudioPlayer(contentsOfURL: audioPath6)
-        audioPlayer6.prepareToPlay()
-        audioPlayer7 = try! AVAudioPlayer(contentsOfURL: audioPath7)
-        audioPlayer7.prepareToPlay()
-        audioPlayer8 = try! AVAudioPlayer(contentsOfURL: audioPath8)
-        audioPlayer8.prepareToPlay()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,6 +39,20 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return mySections[section]
     }
+    
+    //音楽
+    func playSound(soundName: String){
+        let sounds = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(soundName, ofType: "mp3")!)
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOfURL: sounds)
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        } catch{
+            print("Error getting the audio file")
+            
+        }
+    }
+
     
     //セルが選択された際に呼び出される
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -95,21 +72,29 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
             presentViewController(picker, animated: true, completion: nil)
             
         } else if(indexPath.section == 1 && indexPath.row == 1) {
-            audioPlayer1.play()
+            selectedMusic = "天使の夢"
+            playSound("天使の夢")
         } else if(indexPath.section == 1 && indexPath.row == 2) {
-            audioPlayer2.play()
+            selectedMusic = "夢見るクジラ"
+            playSound("夢見るクジラ")
         } else if(indexPath.section == 1 && indexPath.row == 3) {
-            audioPlayer3.play()
+            selectedMusic = "南十字星"
+            playSound("南十字星")
         } else if(indexPath.section == 1 && indexPath.row == 4) {
-            audioPlayer4.play()
+            selectedMusic = "森を流れる川"
+            playSound("森を流れる川")
         } else if(indexPath.section == 1 && indexPath.row == 5) {
-            audioPlayer5.play()
+            selectedMusic = "春の予感"
+            playSound("春の予感")
         } else if(indexPath.section == 1 && indexPath.row == 6) {
-            audioPlayer6.play()
+            selectedMusic = "小春日和"
+            playSound("小春日和")
         } else if(indexPath.section == 1 && indexPath.row == 7) {
-            audioPlayer7.play()
+            selectedMusic = "スフィンクス"
+            playSound("スフィンクス")
         } else if(indexPath.section == 1 && indexPath.row == 8) {
-            audioPlayer8.play()
+            selectedMusic = "神々の宿る場所"
+            playSound("神々の宿る場所")
         }
     }
     
@@ -147,9 +132,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         if segue.identifier == "backToTop" {
             //遷移先のコントローラを取り出す
             let nav = segue.destinationViewController as! UINavigationController
-            let first = nav.topViewController as! FirstViewController
-            first.test = "korosuke"
-            
+            let modal = nav.topViewController as! ModalViewController
         }
     }
 }
