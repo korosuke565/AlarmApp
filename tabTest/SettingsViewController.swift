@@ -14,12 +14,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     // Sectionで使用する配列を定義する.
     private let mySections:[String] = ["音の設定", "音楽"]
     
-    //選ばれた音楽の番号
-    var selectedMusic = ""
+    //AppDelegateのselectedMusicを呼び出す準備
+    let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Settings Screen")
         
         player = MPMusicPlayerController.applicationMusicPlayer()
     }
@@ -29,6 +28,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print(delegate.selectedMusic)
+    }
     
     //セクションの数を返す
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -53,11 +57,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         }
     }
 
-    
     //セルが選択された際に呼び出される
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        //swiftでの多重配列の扱いについて調べる
+        //check selected row
         if indexPath.section == 0 {
             print("Value: \(dataInSection[0][indexPath.row])")
         } else if indexPath.section == 1 {
@@ -72,29 +75,29 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
             presentViewController(picker, animated: true, completion: nil)
             
         } else if(indexPath.section == 1 && indexPath.row == 1) {
-            selectedMusic = "天使の夢"
-            playSound("天使の夢")
+            delegate.selectedMusic = "天使の夢"
+//            playSound("天使の夢")
         } else if(indexPath.section == 1 && indexPath.row == 2) {
-            selectedMusic = "夢見るクジラ"
-            playSound("夢見るクジラ")
+            delegate.selectedMusic = "夢見るクジラ"
+//            playSound("夢見るクジラ")
         } else if(indexPath.section == 1 && indexPath.row == 3) {
-            selectedMusic = "南十字星"
-            playSound("南十字星")
+            delegate.selectedMusic = "南十字星"
+//            playSound("南十字星")
         } else if(indexPath.section == 1 && indexPath.row == 4) {
-            selectedMusic = "森を流れる川"
-            playSound("森を流れる川")
+            delegate.selectedMusic = "森を流れる川"
+//            playSound("森を流れる川")
         } else if(indexPath.section == 1 && indexPath.row == 5) {
-            selectedMusic = "春の予感"
-            playSound("春の予感")
+            delegate.selectedMusic = "春の予感"
+//            playSound("春の予感")
         } else if(indexPath.section == 1 && indexPath.row == 6) {
-            selectedMusic = "小春日和"
-            playSound("小春日和")
+            delegate.selectedMusic = "小春日和"
+//            playSound("小春日和")
         } else if(indexPath.section == 1 && indexPath.row == 7) {
-            selectedMusic = "スフィンクス"
+            delegate.selectedMusic = "スフィンクス"
             playSound("スフィンクス")
         } else if(indexPath.section == 1 && indexPath.row == 8) {
-            selectedMusic = "神々の宿る場所"
-            playSound("神々の宿る場所")
+            delegate.selectedMusic = "神々の宿る場所"
+//            playSound("神々の宿る場所")
         }
     }
     
@@ -126,13 +129,5 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         var test = dataInSection[indexPath.section]
         cell.textLabel?.text = test[indexPath.row]
         return cell
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "backToTop" {
-            //遷移先のコントローラを取り出す
-            let nav = segue.destinationViewController as! UINavigationController
-            let modal = nav.topViewController as! ModalViewController
-        }
     }
 }

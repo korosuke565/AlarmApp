@@ -15,6 +15,7 @@ class FirstViewController: UIViewController{
     private var setTime: String = "00:00"
     var bedTime : NSDate? = nil
     
+    
     @IBAction func myDpFunc(sender: AnyObject) {
         // DPの値を成形
         let format = NSDateFormatter()
@@ -51,6 +52,7 @@ class FirstViewController: UIViewController{
         // 起動した時点の時刻をmyLabelに反映
         // 時間の管理
         _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
+
         
     }
     

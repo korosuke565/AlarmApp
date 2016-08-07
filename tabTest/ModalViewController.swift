@@ -5,8 +5,9 @@ class ModalViewController: UIViewController {
     //起床時間
     var wakeUpTime : NSDate? = nil
     var audioPlayer = AVAudioPlayer()
-    
-    
+    var soundName = "kara"
+    //AppDelegateのselectedMusicを呼び出す準備
+    let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
     // FirstViewControllerからの値を保持する変数
     var receiveTime = ""
     var modalBedTime : NSDate? = nil
@@ -22,6 +23,13 @@ class ModalViewController: UIViewController {
         
         // 時間の管理
         _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
+        print(soundName)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        print(delegate.selectedMusic)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,8 +79,9 @@ class ModalViewController: UIViewController {
         
         //アラートを表示
         presentViewController(alert,animated: true, completion: nil)
+        
+        playSound(delegate.selectedMusic)
   
-        playSound("test")
     
     }
     
