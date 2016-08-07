@@ -106,7 +106,7 @@ class ModalViewController: UIViewController {
     }
     
     //soundtest関数
-    func playSound(soundName: String){
+    func playSound(soundName: String = "test"){
         let sounds = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(soundName, ofType: "mp3")!)
         do{
             audioPlayer = try AVAudioPlayer(contentsOfURL: sounds)
