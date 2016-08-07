@@ -1,17 +1,13 @@
-//
-//  AppDelegate.swift
-//  tabTest
-//
-//  Created by TsuyoshiTonobe on 2016/02/19.
-//  Copyright © 2016年 TsuyoshiTonobe. All rights reserved.
-//
 
 import UIKit
+import MediaPlayer
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MPMediaPickerControllerDelegate {
 
     var window: UIWindow?
+    var selectedMusic = ""
+    var player = MPMusicPlayerController()
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

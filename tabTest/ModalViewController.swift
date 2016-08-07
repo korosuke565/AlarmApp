@@ -1,25 +1,13 @@
-//
-//  ModalViewController.swift
-//  tabTest
-//
-//  Created by TsuyoshiTonobe on 2016/02/24.
-//  Copyright © 2016年 TsuyoshiTonobe. All rights reserved.
-//
-
 import UIKit
 import AVFoundation
 
 class ModalViewController: UIViewController {
     //起床時間
     var wakeUpTime : NSDate? = nil
-    
-    
-    // 音ファイルのpathの設定
-    var audioPath = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("test", ofType: "mp3")!)
-    // プレイヤーの準備
-    var player = AVAudioPlayer()
-
-    
+    var audioPlayer = AVAudioPlayer()
+    var soundName = "kara"
+    //AppDelegateのselectedMusicを呼び出す準備
+    let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
     // FirstViewControllerからの値を保持する変数
     var receiveTime = ""
     var modalBedTime : NSDate? = nil
@@ -35,10 +23,12 @@ class ModalViewController: UIViewController {
         
         // 時間の管理
         _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        // 曲再生の準備
-        player = try! AVAudioPlayer(contentsOfURL: audioPath)
-        player.prepareToPlay()
+        print(delegate.selectedMusic)
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,21 +78,44 @@ class ModalViewController: UIViewController {
         
         //アラートを表示
         presentViewController(alert,animated: true, completion: nil)
-        //アラームの再生
-        player.play()
-    
+        
+        if delegate.selectedMusic == "iphone" {
+            //iphoneから選択された音楽を再生
+            delegate.player.play()
+        } else {
+            playSound(delegate.selectedMusic)
+        }
     }
     
     
     func alermStop() {
-        player.stop()
-        //曲を頭に戻す
-        player.currentTime = 0
+        
+        if delegate.selectedMusic == "iphone" {
+            //iphoneから選択された音楽を再生
+            delegate.player.stop()
+        } else {
+            audioPlayer.stop()
+            //曲を頭に戻す
+            audioPlayer.currentTime = 0
+        }
         //起床時間を取得
         wakeUpTime = NSDate()
         
         self.performSegueWithIdentifier("GameSegue", sender: nil)
 
+    }
+    
+    //soundtest関数
+    func playSound(soundName: String = "test"){
+        let sounds = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(soundName, ofType: "mp3")!)
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOfURL: sounds)
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        } catch{
+            print("Error getting the audio file")
+            
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -114,14 +127,4 @@ class ModalViewController: UIViewController {
 
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
