@@ -23,7 +23,6 @@ class ModalViewController: UIViewController {
         
         // 時間の管理
         _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
-        print(soundName)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -80,16 +79,25 @@ class ModalViewController: UIViewController {
         //アラートを表示
         presentViewController(alert,animated: true, completion: nil)
         
-        playSound(delegate.selectedMusic)
-  
-    
+        if delegate.selectedMusic == "iphone" {
+            //iphoneから選択された音楽を再生
+            delegate.player.play()
+        } else {
+            playSound(delegate.selectedMusic)
+        }
     }
     
     
     func alermStop() {
-        audioPlayer.stop()
-        //曲を頭に戻す
-        audioPlayer.currentTime = 0
+        
+        if delegate.selectedMusic == "iphone" {
+            //iphoneから選択された音楽を再生
+            delegate.player.stop()
+        } else {
+            audioPlayer.stop()
+            //曲を頭に戻す
+            audioPlayer.currentTime = 0
+        }
         //起床時間を取得
         wakeUpTime = NSDate()
         

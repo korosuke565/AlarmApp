@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        player = MPMusicPlayerController.applicationMusicPlayer()
+        delegate.player = MPMusicPlayerController.applicationMusicPlayer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,11 +68,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         }
         //sectionが1かつrowが0の時の処理を書こう
         if(indexPath.section == 1 && indexPath.row == 0){
-            print("音楽を選ぶ処理を加える")
             let picker = MPMediaPickerController()
             picker.delegate = self
             picker.allowsPickingMultipleItems = false
             presentViewController(picker, animated: true, completion: nil)
+            delegate.selectedMusic = "iphone"
             
         } else if(indexPath.section == 1 && indexPath.row == 1) {
             delegate.selectedMusic = "天使の夢"
@@ -105,9 +105,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     func mediaPicker(mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
         
         //選択した曲情報がmediaItemCollectionに入ってるのでこれをplayerにセット
-        player.setQueueWithItemCollection(mediaItemCollection)
+        delegate.player.setQueueWithItemCollection(mediaItemCollection)
         //再生開始
-        player.play()
+//        delegate.player.play()
         //ピッカーを閉じ破棄する
         dismissViewControllerAnimated(true, completion: nil)
     }
