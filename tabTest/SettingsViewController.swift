@@ -7,6 +7,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     @IBOutlet weak var tableView: UITableView!
     var player = MPMusicPlayerController()
     var audioPlayer = AVAudioPlayer()
+    var timer:NSTimer = NSTimer()
     
     // Tableで使用する配列を定義する.
     let dataInSection = [["バイブレーション", "音量"],["iPhoneからmusicを選択", "天使の夢", "夢見るクジラ", "南十字星","森を流れる川","春の予感","小春日和","スフィンクス","神々の宿る場所"]]
@@ -32,6 +33,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         super.viewWillAppear(animated)
         
         print(delegate.selectedMusic)
+
     }
     
     //セクションの数を返す
@@ -73,31 +75,39 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
             picker.allowsPickingMultipleItems = false
             presentViewController(picker, animated: true, completion: nil)
             delegate.selectedMusic = "iphone"
-            
+            stopTimer()
         } else if(indexPath.section == 1 && indexPath.row == 1) {
             delegate.selectedMusic = "天使の夢"
-//            playSound("天使の夢")
+            playSound("天使の夢")
+            stopTimer()
         } else if(indexPath.section == 1 && indexPath.row == 2) {
             delegate.selectedMusic = "夢見るクジラ"
-//            playSound("夢見るクジラ")
+            playSound("夢見るクジラ")
+            stopTimer()
         } else if(indexPath.section == 1 && indexPath.row == 3) {
             delegate.selectedMusic = "南十字星"
-//            playSound("南十字星")
+            playSound("南十字星")
+            stopTimer()
         } else if(indexPath.section == 1 && indexPath.row == 4) {
             delegate.selectedMusic = "森を流れる川"
-//            playSound("森を流れる川")
+            playSound("森を流れる川")
+            stopTimer()
         } else if(indexPath.section == 1 && indexPath.row == 5) {
             delegate.selectedMusic = "春の予感"
-//            playSound("春の予感")
+            playSound("春の予感")
+            stopTimer()
         } else if(indexPath.section == 1 && indexPath.row == 6) {
             delegate.selectedMusic = "小春日和"
-//            playSound("小春日和")
+            playSound("小春日和")
+            stopTimer()
         } else if(indexPath.section == 1 && indexPath.row == 7) {
             delegate.selectedMusic = "スフィンクス"
             playSound("スフィンクス")
+            stopTimer()
         } else if(indexPath.section == 1 && indexPath.row == 8) {
             delegate.selectedMusic = "神々の宿る場所"
-//            playSound("神々の宿る場所")
+            playSound("神々の宿る場所")
+            stopTimer()
         }
     }
     
@@ -107,7 +117,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         //選択した曲情報がmediaItemCollectionに入ってるのでこれをplayerにセット
         delegate.player.setQueueWithItemCollection(mediaItemCollection)
         //再生開始
-//        delegate.player.play()
+        delegate.player.play()
         //ピッカーを閉じ破棄する
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -129,5 +139,20 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         var test = dataInSection[indexPath.section]
         cell.textLabel?.text = test[indexPath.row]
         return cell
+    }
+    
+    //音楽のタイマー処理
+    func stopTimer() {
+        timer = NSTimer.scheduledTimerWithTimeInterval(20.0, target: self,selector: "stopMusic", userInfo: nil, repeats: false)
+    }
+    
+    func stopMusic() {
+        if delegate.selectedMusic == "iphone" {
+            delegate.player.stop()
+        } else {
+            if(audioPlayer.playing) {
+                audioPlayer.stop()
+            }
+        }
     }
 }
