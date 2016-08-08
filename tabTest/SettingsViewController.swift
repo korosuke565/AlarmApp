@@ -59,7 +59,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         switch(indexPath.row){
             
         case 0 where indexPath.section == 0:
-            let cell = tableView.dequeueReusableCellWithIdentifier("Cell1", forIndexPath: indexPath) as UITableViewCell
+//            let cell = tableView.dequeueReusableCellWithIdentifier("Cell1", forIndexPath: indexPath) as UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell1", forIndexPath: indexPath) as UITableViewCell
+            
             let label = cell.viewWithTag(1) as! UILabel
             label.text = "バイブレーション"
             return cell
@@ -177,4 +179,23 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
             }
         }
     }
+    
+    @IBAction func changeSwitch(sender: AnyObject) {
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

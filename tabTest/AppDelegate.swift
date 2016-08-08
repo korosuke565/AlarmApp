@@ -8,6 +8,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMediaPickerControllerDe
     var window: UIWindow?
     var selectedMusic = ""
     var player = MPMusicPlayerController()
+    //バイブレーションswitch
+    var vibeSwitch = "ON"
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
