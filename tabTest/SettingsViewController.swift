@@ -5,6 +5,7 @@ import AVFoundation
 class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, MPMediaPickerControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    
     var player = MPMusicPlayerController()
     var audioPlayer = AVAudioPlayer()
     var timer:NSTimer = NSTimer()
@@ -45,6 +46,41 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return mySections[section]
     }
+    
+    
+    //Rowのセルの数を返す
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataInSection[section].count
+    }
+    
+    //各セルの内容を返す
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        switch(indexPath.row){
+            
+        case 0 where indexPath.section == 0:
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell1", forIndexPath: indexPath) as UITableViewCell
+            let label = cell.viewWithTag(1) as! UILabel
+            label.text = "バイブレーション"
+            return cell
+        case 1 where indexPath.section == 0:
+            let cell = tableView.dequeueReusableCellWithIdentifier("Cell2", forIndexPath: indexPath) as UITableViewCell
+            let label = cell.viewWithTag(2) as! UILabel
+            label.text = "音量"
+            return cell
+            
+        default:
+            let cell = tableView.dequeueReusableCellWithIdentifier("MyCell")! as UITableViewCell
+            
+            var test = dataInSection[indexPath.section]
+            cell.textLabel?.text = test[indexPath.row]
+            return cell
+            
+        }
+
+    }
+    
+
     
     //音楽
     func playSound(soundName: String){
@@ -125,20 +161,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     //選択がキャンセルされた場合に呼び出される
     func mediaPickerDidCancel(mediaPicker: MPMediaPickerController) {
         dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    
-    //各セクションのセルの数を返す
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataInSection[section].count
-    }
-    
-    //各セルの内容を返す
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath) as UITableViewCell
-        var test = dataInSection[indexPath.section]
-        cell.textLabel?.text = test[indexPath.row]
-        return cell
     }
     
     //音楽のタイマー処理
