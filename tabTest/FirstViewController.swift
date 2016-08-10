@@ -16,6 +16,7 @@ class FirstViewController: UIViewController{
     var bedTime : NSDate? = nil
     
     
+    
     @IBAction func myDpFunc(sender: AnyObject) {
         // DPの値を成形
         let format = NSDateFormatter()

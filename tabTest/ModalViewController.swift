@@ -1,16 +1,19 @@
 import UIKit
 import AVFoundation
+import AudioToolbox
 
 class ModalViewController: UIViewController {
     //起床時間
     var wakeUpTime : NSDate? = nil
     var audioPlayer = AVAudioPlayer()
     var soundName = "kara"
-    //AppDelegateのselectedMusicを呼び出す準備
+    //AppDelegate変数を呼び出す準備
     let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
     // FirstViewControllerからの値を保持する変数
     var receiveTime = ""
     var modalBedTime : NSDate? = nil
+    //vibeに関する変数
+    var timer = NSTimer()
 
     @IBOutlet weak var receiveTimeLabel: UILabel!
     
@@ -78,12 +81,16 @@ class ModalViewController: UIViewController {
         
         //アラートを表示
         presentViewController(alert,animated: true, completion: nil)
-        
+        //alarm
         if delegate.selectedMusic == "iphone" {
             //iphoneから選択された音楽を再生
             delegate.player.play()
         } else {
             playSound(delegate.selectedMusic)
+        }
+        //vibe
+        if delegate.vibeSwitch == true {
+            viSwitch()
         }
     }
     
@@ -98,6 +105,8 @@ class ModalViewController: UIViewController {
             //曲を頭に戻す
             audioPlayer.currentTime = 0
         }
+        //タイマーの停止
+        timer.invalidate()
         //起床時間を取得
         wakeUpTime = NSDate()
         
@@ -105,7 +114,7 @@ class ModalViewController: UIViewController {
 
     }
     
-    //soundtest関数
+    //sound
     func playSound(soundName: String = "test"){
         let sounds = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(soundName, ofType: "mp3")!)
         do{
@@ -117,6 +126,19 @@ class ModalViewController: UIViewController {
             
         }
     }
+    
+    //vibration
+    func viSwitch(){
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "vibrate:", userInfo: nil, repeats: true)
+
+        timer.fire()
+    }
+    
+    func vibrate(timer: NSTimer) {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "GameSegue" {
