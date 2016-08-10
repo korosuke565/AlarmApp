@@ -7,7 +7,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     var player = MPMusicPlayerController()
-    var audioPlayer = AVAudioPlayer()
+//    var audioPlayer = AVAudioPlayer()
     var timer:NSTimer = NSTimer()
     
     // Tableで使用する配列を定義する.
@@ -34,6 +34,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         super.viewWillAppear(animated)
         
         print(delegate.selectedMusic)
+        
 
     }
     
@@ -59,14 +60,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
         switch(indexPath.row){
             
         case 0 where indexPath.section == 0:
-//            let cell = tableView.dequeueReusableCellWithIdentifier("Cell1", forIndexPath: indexPath) as UITableViewCell
-            let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell1", forIndexPath: indexPath) as UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell3", forIndexPath: indexPath) as UITableViewCell
             
             let label = cell.viewWithTag(1) as! UILabel
             label.text = "バイブレーション"
             return cell
         case 1 where indexPath.section == 0:
-            let cell = tableView.dequeueReusableCellWithIdentifier("Cell2", forIndexPath: indexPath) as UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell2", forIndexPath: indexPath) as UITableViewCell
+            
             let label = cell.viewWithTag(2) as! UILabel
             label.text = "音量"
             return cell
@@ -79,7 +80,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
             return cell
             
         }
-
     }
     
 
@@ -88,9 +88,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     func playSound(soundName: String){
         let sounds = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(soundName, ofType: "mp3")!)
         do{
-            audioPlayer = try AVAudioPlayer(contentsOfURL: sounds)
-            audioPlayer.prepareToPlay()
-            audioPlayer.play()
+            delegate.audioPlayer = try AVAudioPlayer(contentsOfURL: sounds)
+            delegate.audioPlayer.prepareToPlay()
+            delegate.audioPlayer.play()
         } catch{
             print("Error getting the audio file")
             
@@ -100,12 +100,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     //セルが選択された際に呼び出される
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        //check selected row
-        if indexPath.section == 0 {
-            print("Value: \(dataInSection[0][indexPath.row])")
-        } else if indexPath.section == 1 {
-            print("Value: \(dataInSection[1][indexPath.row])")
-        }
+//        //check selected row
+//        if indexPath.section == 0 {
+//            print("Value: \(dataInSection[0][indexPath.row])")
+//        } else if indexPath.section == 1 {
+//            print("Value: \(dataInSection[1][indexPath.row])")
+//        }
         //sectionが1かつrowが0の時の処理を書こう
         if(indexPath.section == 1 && indexPath.row == 0){
             let picker = MPMediaPickerController()
@@ -167,35 +167,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     //音楽のタイマー処理
     func stopTimer() {
-        timer = NSTimer.scheduledTimerWithTimeInterval(20.0, target: self,selector: "stopMusic", userInfo: nil, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(30.0, target: self,selector: "stopMusic", userInfo: nil, repeats: false)
     }
     
     func stopMusic() {
         if delegate.selectedMusic == "iphone" {
             delegate.player.stop()
         } else {
-            if(audioPlayer.playing) {
-                audioPlayer.stop()
+            if(delegate.audioPlayer.playing) {
+                delegate.audioPlayer.stop()
             }
         }
     }
-    
-    @IBAction func changeSwitch(sender: AnyObject) {
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

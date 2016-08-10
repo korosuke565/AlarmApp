@@ -89,7 +89,7 @@ class ModalViewController: UIViewController {
             playSound(delegate.selectedMusic)
         }
         //vibe
-        if delegate.vibeSwitch == "ON" {
+        if delegate.vibeSwitch == true {
             viSwitch()
         }
     }

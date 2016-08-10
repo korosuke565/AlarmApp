@@ -1,15 +1,17 @@
 
 import UIKit
 import MediaPlayer
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MPMediaPickerControllerDelegate {
 
     var window: UIWindow?
-    var selectedMusic = ""
+    var selectedMusic = "test"
     var player = MPMusicPlayerController()
+    var audioPlayer = AVAudioPlayer()
     //バイブレーションswitch
-    var vibeSwitch = "ON"
+    var vibeSwitch = true
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

@@ -215,7 +215,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell1" id="Dmn-of-C4K" customClass="TableViewCell1" customModule="AlarmApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell3" id="Dmn-of-C4K" userLabel="TableViewCell3" customClass="TableViewCell3" customModule="AlarmApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dmn-of-C4K" id="0qy-4a-HPK">
@@ -231,8 +231,7 @@
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z1L-Ac-zOa">
                                             <rect key="frame" x="239" y="6" width="51" height="31"/>
                                             <connections>
-                                                <action selector="changeSwitch:" destination="CLa-DC-Yby" eventType="valueChanged" id="2ps-wb-7qq"/>
-                                                <action selector="changeSwitch:" destination="Dmn-of-C4K" eventType="valueChanged" id="BsN-0h-s0P"/>
+                                                <action selector="changeSwitch:" destination="Dmn-of-C4K" eventType="valueChanged" id="ngJ-15-GRs"/>
                                             </connections>
                                         </switch>
                                     </subviews>
@@ -248,10 +247,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="mySwitch" destination="z1L-Ac-zOa" id="mvj-qe-H1e"/>
+                                    <outlet property="mySwitch" destination="z1L-Ac-zOa" id="ehK-pb-GLE"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" id="sxY-Yd-eNL" userLabel="Cell2">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell2" id="sxY-Yd-eNL" userLabel="TableViewCell2" customClass="TableViewCell2" customModule="AlarmApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="136" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sxY-Yd-eNL" id="mE3-29-EUm">
@@ -266,6 +265,9 @@
                                         </label>
                                         <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iak-82-VIT">
                                             <rect key="frame" x="117" y="7" width="187" height="31"/>
+                                            <connections>
+                                                <action selector="changeSlider:" destination="sxY-Yd-eNL" eventType="valueChanged" id="6ae-f9-ian"/>
+                                            </connections>
                                         </slider>
                                     </subviews>
                                     <constraints>
@@ -275,6 +277,9 @@
                                         <constraint firstAttribute="bottom" secondItem="iak-82-VIT" secondAttribute="bottom" constant="6.5" id="ume-PE-9e6"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="slider" destination="iak-82-VIT" id="xR0-gI-CbZ"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" id="ApZ-PD-oXF">
                                 <rect key="frame" x="0.0" y="180" width="320" height="44"/>
@@ -297,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4v-20-WDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068" y="-100"/>
+            <point key="canvasLocation" x="1156" y="-112"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
