@@ -16,7 +16,6 @@ class FirstViewController: UIViewController{
     var bedTime : NSDate? = nil
     
     
-    
     @IBAction func myDpFunc(sender: AnyObject) {
         // DPの値を成形
         let format = NSDateFormatter()
@@ -35,8 +34,6 @@ class FirstViewController: UIViewController{
         self.myLabel.text = alarmTime
         //一時的にDPの値を保持
         tempTime = format.stringFromDate(myDP.date)
-        //tempTime
-        print("設定時刻は" + tempTime)
         
     }
     
@@ -49,7 +46,7 @@ class FirstViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-             
+        
     }
     
     func getNowTime() -> String {

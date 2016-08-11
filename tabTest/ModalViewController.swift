@@ -7,13 +7,16 @@ class ModalViewController: UIViewController {
     var wakeUpTime : NSDate? = nil
     var audioPlayer = AVAudioPlayer()
     var soundName = "kara"
+    var alarmSwitch = true
     //AppDelegate変数を呼び出す準備
     let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    // FirstViewControllerからの値を保持する変数
+    // FirstViewControllerからの値
     var receiveTime = ""
     var modalBedTime : NSDate? = nil
-    //vibeに関する変数
+    //timer処理
     var timer = NSTimer()
+    var wakeTiemr = NSTimer()
+    
 
     @IBOutlet weak var receiveTimeLabel: UILabel!
     
@@ -25,13 +28,14 @@ class ModalViewController: UIViewController {
         self.receiveTimeLabel.text = self.receiveTime
         
         // 時間の管理
-        _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
+         wakeTiemr = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: "update", userInfo: nil, repeats: true)
+
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        // alarmSwithc = true
         
-        print(delegate.selectedMusic)
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,9 +47,16 @@ class ModalViewController: UIViewController {
         // 現在時刻を取得
         let str = getNowTime()
         // アラームを鳴らすか判断
-        myAlarm(str)
+        print("現在の時刻は" + str)
+        print("設定時刻は" + receiveTime)
+        if str == receiveTime {
+            alert()
+            wakeTiemr.invalidate()
+        }
+
         
     }
+    
     
     func getNowTime() -> String {
         // 現在時刻を取得
@@ -57,14 +68,6 @@ class ModalViewController: UIViewController {
         // 成形した時刻を文字列として返す
         return nowTimeStr
         
-    }
-
-    
-    func myAlarm(str: String) {
-        // 現在時刻が設定時刻と一緒なら
-        if str == receiveTime {
-            alert()
-        }
     }
     
     func alert(){
