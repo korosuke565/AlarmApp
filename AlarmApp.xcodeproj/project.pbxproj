@@ -18,6 +18,7 @@
 		B128BF8F1D55B3FC0067C1E5 /* 春の予感.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF8E1D55B3FC0067C1E5 /* 春の予感.mp3 */; };
 		B128C02F1D5873A40067C1E5 /* TableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B128C02E1D5873A40067C1E5 /* TableViewCell2.swift */; };
 		B128C04F1D5955650067C1E5 /* TableViewCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B128C04E1D5955650067C1E5 /* TableViewCell3.swift */; };
+		B1A134A11D5C638E0035F9D5 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A134A01D5C638E0035F9D5 /* GraphView.swift */; };
 		B1AC1C261C76A3FF0078EDA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C251C76A3FF0078EDA0 /* AppDelegate.swift */; };
 		B1AC1C281C76A3FF0078EDA0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C271C76A3FF0078EDA0 /* FirstViewController.swift */; };
 		B1AC1C2A1C76A3FF0078EDA0 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C291C76A3FF0078EDA0 /* ChartViewController.swift */; };
@@ -45,6 +46,7 @@
 		B128BF8E1D55B3FC0067C1E5 /* 春の予感.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "春の予感.mp3"; sourceTree = "<group>"; };
 		B128C02E1D5873A40067C1E5 /* TableViewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell2.swift; sourceTree = "<group>"; };
 		B128C04E1D5955650067C1E5 /* TableViewCell3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell3.swift; sourceTree = "<group>"; };
+		B1A134A01D5C638E0035F9D5 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		B1AC1C221C76A3FF0078EDA0 /* AlarmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AC1C251C76A3FF0078EDA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1AC1C271C76A3FF0078EDA0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				B1B7B85E1C7DAE1F00EB293C /* ModalViewController.swift */,
 				B1DA630A1C7ED01C005EE71D /* GameViewController.swift */,
 				B1AC1C291C76A3FF0078EDA0 /* ChartViewController.swift */,
+				B1A134A01D5C638E0035F9D5 /* GraphView.swift */,
 				B1AC1C391C76A61D0078EDA0 /* SettingsViewController.swift */,
 				B128C02E1D5873A40067C1E5 /* TableViewCell2.swift */,
 				B128C04E1D5955650067C1E5 /* TableViewCell3.swift */,
@@ -284,6 +287,7 @@
 				B1B7B85F1C7DAE1F00EB293C /* ModalViewController.swift in Sources */,
 				B1AC1C261C76A3FF0078EDA0 /* AppDelegate.swift in Sources */,
 				B1B369901C911B7A00BFD7CD /* SleepLog.swift in Sources */,
+				B1A134A11D5C638E0035F9D5 /* GraphView.swift in Sources */,
 				B1AC1C3A1C76A61D0078EDA0 /* SettingsViewController.swift in Sources */,
 				B1DA630B1C7ED01C005EE71D /* GameViewController.swift in Sources */,
 				B1AC1C281C76A3FF0078EDA0 /* FirstViewController.swift in Sources */,

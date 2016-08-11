@@ -10,6 +10,17 @@ class ChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var shakeArray = [CGFloat?]()
+        for diaryData in diaryDatas {
+            shakeArray.append(CGFloat(diaryData.shakecount))
+            //条件分岐で7つだけにする
+            if shakeArray.count > 6  {
+                break
+            }
+        }
+        print(shakeArray)
+        print(diaryDatas)
         drawBarGraph()
         drawLineGraph()
     }
@@ -236,11 +247,11 @@ class LineStroke: UIView, GraphStroke {
             if graphPoint.index > 0 {
                 let nextPoint = CGPoint(x: getXPoint(test),
                                         y: getYPoint(graphPoint.element! + 2))
-                print(nextPoint)
+               
                 graphPath.addLineToPoint(nextPoint)
             }
         }
-        print(graphPath)
+   
         
         graphPath.lineWidth = 5.0
         color.setStroke()
