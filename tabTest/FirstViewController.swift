@@ -35,6 +35,8 @@ class FirstViewController: UIViewController{
         self.myLabel.text = alarmTime
         //一時的にDPの値を保持
         tempTime = format.stringFromDate(myDP.date)
+        //tempTime
+        print("設定時刻は" + tempTime)
         
     }
     
@@ -47,14 +49,7 @@ class FirstViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        // 起動した時点の時刻をmyLabelに反映
-        // 時間の管理
-        _ = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "update", userInfo: nil, repeats: true)
-
-        
+             
     }
     
     func getNowTime() -> String {
@@ -68,33 +63,7 @@ class FirstViewController: UIViewController{
         return nowTimeStr
     
     }
-    
-    func update() {
-        // 現在時刻を取得
-        let str = getNowTime()
-        // アラームを鳴らすか判断
-        myAlarm(str)
-    
-    }
-    
-    func myAlarm(str: String) {
-        // 現在時刻が設定時刻と一緒なら
-        if str == setTime {
-            alert()
-        }
-    }
-    
-    func alert() {
-        let myAlert = UIAlertController(title: "alert", message: "時間です。起きてください", preferredStyle: .Alert)
-        let myAction = UIAlertAction(title: "dong", style: .Default) {
-            action in print("foo")
-        }
-        
-        myAlert.addAction(myAction)
-        presentViewController(myAlert, animated: true, completion: nil)
-    
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
