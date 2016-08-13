@@ -8,6 +8,9 @@ class ChartViewController: UIViewController {
     let realm = try! Realm()
     let diaryDatas = try! Realm().objects(SleepLog).sorted("date", ascending: false)
     
+    
+    @IBOutlet weak var graphView: GraphView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,10 +22,10 @@ class ChartViewController: UIViewController {
                 break
             }
         }
-        print(shakeArray)
-        print(diaryDatas)
-        drawBarGraph()
-        drawLineGraph()
+//        drawBarGraph()
+//        drawLineGraph()
+        graphView.setupPoints([])
+
     }
     
     func drawBarGraph() {

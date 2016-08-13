@@ -198,9 +198,32 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXM-L6-hfT" customClass="GraphView" customModule="AlarmApp" customModuleProvider="target">
+                                <rect key="frame" x="40" y="128" width="240" height="188"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.5490196078431373" green="0.80000000000000004" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="0.5490196078431373" green="0.48627450980392156" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xXM-L6-hfT" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="40" id="1lv-8w-PzC"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="xXM-L6-hfT" secondAttribute="bottom" constant="203" id="7gJ-6Q-iTp"/>
+                            <constraint firstItem="xXM-L6-hfT" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="108" id="B9d-R7-wJg"/>
+                            <constraint firstAttribute="trailing" secondItem="xXM-L6-hfT" secondAttribute="trailing" constant="40" id="mPy-xf-v4M"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chart" image="Chart" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="graphView" destination="xXM-L6-hfT" id="CvF-9U-qIx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
