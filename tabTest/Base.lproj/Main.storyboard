@@ -195,13 +195,26 @@
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXM-L6-hfT" customClass="GraphView" customModule="AlarmApp" customModuleProvider="target">
                                 <rect key="frame" x="40" y="128" width="240" height="188"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shake Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Sa-5O-9zL">
+                                        <rect key="frame" x="15" y="15" width="83" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.99619391025641024" green="0.99619391025641024" blue="0.99619391025641024" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5Sa-5O-9zL" secondAttribute="trailing" constant="165" id="Dhi-d8-9aE"/>
+                                    <constraint firstItem="5Sa-5O-9zL" firstAttribute="leading" secondItem="xXM-L6-hfT" secondAttribute="leading" constant="15" id="K3s-Tw-uRj"/>
+                                    <constraint firstItem="5Sa-5O-9zL" firstAttribute="top" secondItem="xXM-L6-hfT" secondAttribute="top" constant="15" id="sUr-mw-YJT"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                         <color key="value" red="0.5490196078431373" green="0.80000000000000004" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
@@ -214,10 +227,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xXM-L6-hfT" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="40" id="1lv-8w-PzC"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="xXM-L6-hfT" secondAttribute="bottom" constant="203" id="7gJ-6Q-iTp"/>
-                            <constraint firstItem="xXM-L6-hfT" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="108" id="B9d-R7-wJg"/>
-                            <constraint firstAttribute="trailing" secondItem="xXM-L6-hfT" secondAttribute="trailing" constant="40" id="mPy-xf-v4M"/>
+                            <constraint firstItem="xXM-L6-hfT" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" constant="40" id="08t-Cf-ih1"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="xXM-L6-hfT" secondAttribute="bottom" constant="203" id="Lvx-B5-xBW"/>
+                            <constraint firstItem="xXM-L6-hfT" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="108" id="Uhh-F0-VBM"/>
+                            <constraint firstAttribute="trailing" secondItem="xXM-L6-hfT" secondAttribute="trailing" constant="40" id="dfI-6E-scz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chart" image="Chart" id="cPa-gy-q4n"/>

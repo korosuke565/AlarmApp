@@ -6,6 +6,9 @@ import RealmSwift
     @IBInspectable var startColor: UIColor = UIColor.redColor()
     @IBInspectable var endColor: UIColor = UIColor.greenColor()
     
+    
+    
+    
     //Realmインスタンスを生成
     let realm = try! Realm()
     let sleepDatas = try! Realm().objects(SleepLog).sorted("date", ascending: false)
@@ -89,6 +92,7 @@ import RealmSwift
             return y
         }
         
+        
         let graphPath = UIBezierPath()
         
         graphPath.moveToPoint(CGPoint(x:columnXPoint(0),
@@ -164,26 +168,25 @@ import RealmSwift
         var maxData = shakeCount.maxElement()
         var minData = shakeCount.minElement()
         //グラフの日付
-        var count = 0
-        let labelY = width - 30
-//        for day in dateArray {
-//            
-//            let label = UILabel()
-//            label.text = String(day)
-//            label.textColor = UIColor.whiteColor()
-//            label.font = UIFont.systemFontOfSize(9)
-//            
-//            //ラベルのサイズを取得
-//            let frame = CGSizeMake(20, CGFloat.max)
-//            let rect = label.sizeThatFits(frame)
-//            
-//            //ラベルの位置
-//            var labelX = columnXPoint(count) - 5
-//            
-//            label.frame = CGRectMake(labelX, labelY, rect.width, rect.height)
-//            self.addSubview(label)
-//            
-//            count += 1
-//        }
+
+        for i in 0...dateArray.count - 1 {
+
+            let label = UILabel()
+            label.text = String(dateArray[i])
+            label.textColor = UIColor.whiteColor()
+            label.font = UIFont.systemFontOfSize(9)
+            
+            //ラベルのサイズを取得
+            let frame = CGSizeMake(250, CGFloat.max)
+            let rect = label.sizeThatFits(frame)
+            
+            //ラベルの位置
+            var lebelX = columnXPoint(i) - 8
+            var labelY = height - bottomBorder + 20
+            
+            label.frame = CGRectMake(lebelX , labelY, rect.width, rect.height)
+            self.addSubview(label)
+        }
     }
+    
 }
