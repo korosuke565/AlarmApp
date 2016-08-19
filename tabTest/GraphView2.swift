@@ -1,69 +1,28 @@
 import UIKit
-import RealmSwift
 
-@IBDesignable
-class GraphView: UIView {
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
+@IBDesignable class GraphView2: UIView {
     
     @IBInspectable var startColor: UIColor = UIColor.redColor()
     @IBInspectable var endColor: UIColor = UIColor.greenColor()
     
-    //AppDelegate変数を呼び出す準備
-    let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-
+    // ダミーデータ
+    var graphPoints:[Int] = [4, 2, 6, 4, 5, 8, 3]
     
-
-    
-    //Realmインスタンスを生成
-//    let realm = try! Realm()
-//    let sleepDatas = try! Realm().objects(SleepLog).sorted("date", ascending: false)
-    
-//    var dateArray = [String]()
-    var dateArray = ["8/7","8/8","8/9","8/10","8/11","8/12","8/13"]
-    var shakeCount = [Int]()
-    
-    
-    // グラフのプロットデータ設定用のメソッド
+    // グラフのプロットデータ設定用のメソッドです。
     func setupPoints(points: [Int]) {
-        shakeCount = points
+        graphPoints = points
         self.setNeedsDisplay()
     }
     
     override func drawRect(rect: CGRect) {
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
-        dateFormatter.dateFormat = "MM/dd"
-        
-        var stringDate: String
-       
-        for sleepData in delegate.sleepDatas {
-            stringDate = dateFormatter.stringFromDate(sleepData.date)
-            dateArray.insert(stringDate, atIndex: 0)
-            shakeCount.insert(sleepData.shakecount, atIndex: 0)
-            
-            //条件分岐で7つだけにする
-            if dateArray.count > 6 {
-                break
-            }
-        }
-        // グラデーション
+        // グラデーションの描画
         let width = rect.width
         let height = rect.height
         
         let path = UIBezierPath(roundedRect: rect,
                                 byRoundingCorners: UIRectCorner.AllCorners,
-                                
                                 cornerRadii: CGSize(width: 8.0, height: 8.0))
-        //角丸
         path.addClip()
         
         let context = UIGraphicsGetCurrentContext()
@@ -87,7 +46,7 @@ class GraphView: UIView {
         let columnXPoint = { (column:Int) -> CGFloat in
             
             let spacer = (width - margin*2 - 4) /
-                CGFloat((self.shakeCount.count - 1))
+                CGFloat((self.graphPoints.count - 1))
             var x:CGFloat = CGFloat(column) * spacer
             x += margin + 2
             return x
@@ -96,8 +55,8 @@ class GraphView: UIView {
         // Y座標の計算
         let topBorder:CGFloat = 60
         let bottomBorder:CGFloat = 50
-        let graphHeight = height - (topBorder + bottomBorder)
-        let maxValue = shakeCount.maxElement() ?? 1
+        let graphHeight = height - topBorder - bottomBorder
+        let maxValue = graphPoints.maxElement() ?? 1
         let columnYPoint = { (graphPoint:Int) -> CGFloat in
             
             var y:CGFloat = CGFloat(graphPoint) / CGFloat(maxValue) * graphHeight
@@ -105,23 +64,21 @@ class GraphView: UIView {
             return y
         }
         
+        // 折れ線グラフの描画
+        UIColor.whiteColor().setFill()
+        UIColor.whiteColor().setStroke()
         
         let graphPath = UIBezierPath()
         
         graphPath.moveToPoint(CGPoint(x:columnXPoint(0),
-            y:columnYPoint(shakeCount[0])))
+            y:columnYPoint(graphPoints[0])))
         
-        
-        for i in 1..<shakeCount.count {
+        for i in 1..<graphPoints.count {
             let nextPoint = CGPoint(x:columnXPoint(i),
-                                    y:columnYPoint(shakeCount[i]))
+                                    y:columnYPoint(graphPoints[i]))
             graphPath.addLineToPoint(nextPoint)
         }
         
-        // 折れ線グラフの描画
-        // 塗りつぶしと色の設定
-        UIColor.whiteColor().setFill()
-        UIColor.whiteColor().setStroke()
         graphPath.stroke()
         
         // 高さの調整
@@ -138,9 +95,9 @@ class GraphView: UIView {
         graphPath.lineWidth = 2.0
         graphPath.stroke()
         
-        // ドットの描画
-        for i in 0..<shakeCount.count {
-            var point = CGPoint(x:columnXPoint(i), y:columnYPoint(shakeCount[i]))
+        // プロットの描画
+        for i in 0..<graphPoints.count {
+            var point = CGPoint(x:columnXPoint(i), y:columnYPoint(graphPoints[i]))
             point.x -= 5.0/2
             point.y -= 5.0/2
             
@@ -171,35 +128,10 @@ class GraphView: UIView {
             y:height - bottomBorder))
         linePath.addLineToPoint(CGPoint(x:width - margin,
             y:height - bottomBorder))
-        
-        //線の設定
         let color = UIColor(white: 1.0, alpha: 0.3)
         color.setStroke()
+        
         linePath.lineWidth = 1.0
         linePath.stroke()
-        
-        var maxData = shakeCount.maxElement()
-        var minData = shakeCount.minElement()
-        //グラフの日付
-
-        for i in 0...dateArray.count - 1 {
-
-            let label = UILabel()
-            label.text = String(dateArray[i])
-            label.textColor = UIColor.whiteColor()
-            label.font = UIFont.systemFontOfSize(9)
-            
-            //ラベルのサイズを取得
-            let frame = CGSizeMake(250, CGFloat.max)
-            let rect = label.sizeThatFits(frame)
-            
-            //ラベルの位置
-            var lebelX = columnXPoint(i) - 8
-            var labelY = height - bottomBorder + 20
-            
-            label.frame = CGRectMake(lebelX , labelY, rect.width, rect.height)
-            self.addSubview(label)
-        }
     }
-    
 }

@@ -18,6 +18,7 @@
 		B128BF8F1D55B3FC0067C1E5 /* 春の予感.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF8E1D55B3FC0067C1E5 /* 春の予感.mp3 */; };
 		B128C02F1D5873A40067C1E5 /* TableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B128C02E1D5873A40067C1E5 /* TableViewCell2.swift */; };
 		B128C04F1D5955650067C1E5 /* TableViewCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B128C04E1D5955650067C1E5 /* TableViewCell3.swift */; };
+		B18510411D6530E200D0322C /* GraphView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18510401D6530E200D0322C /* GraphView2.swift */; };
 		B1A134A11D5C638E0035F9D5 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A134A01D5C638E0035F9D5 /* GraphView.swift */; };
 		B1AC1C261C76A3FF0078EDA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C251C76A3FF0078EDA0 /* AppDelegate.swift */; };
 		B1AC1C281C76A3FF0078EDA0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C271C76A3FF0078EDA0 /* FirstViewController.swift */; };
@@ -46,6 +47,7 @@
 		B128BF8E1D55B3FC0067C1E5 /* 春の予感.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "春の予感.mp3"; sourceTree = "<group>"; };
 		B128C02E1D5873A40067C1E5 /* TableViewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell2.swift; sourceTree = "<group>"; };
 		B128C04E1D5955650067C1E5 /* TableViewCell3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell3.swift; sourceTree = "<group>"; };
+		B18510401D6530E200D0322C /* GraphView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView2.swift; sourceTree = "<group>"; };
 		B1A134A01D5C638E0035F9D5 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		B1AC1C221C76A3FF0078EDA0 /* AlarmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AC1C251C76A3FF0078EDA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				B1AC1C301C76A3FF0078EDA0 /* LaunchScreen.storyboard */,
 				B1AC1C331C76A3FF0078EDA0 /* Info.plist */,
 				B1B3698F1C911B7A00BFD7CD /* SleepLog.swift */,
+				B18510401D6530E200D0322C /* GraphView2.swift */,
 			);
 			name = AlarmApp;
 			path = tabTest;
@@ -292,6 +295,7 @@
 				B1DA630B1C7ED01C005EE71D /* GameViewController.swift in Sources */,
 				B1AC1C281C76A3FF0078EDA0 /* FirstViewController.swift in Sources */,
 				B128C04F1D5955650067C1E5 /* TableViewCell3.swift in Sources */,
+				B18510411D6530E200D0322C /* GraphView2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
