@@ -15,17 +15,6 @@ import RealmSwift
     @IBInspectable var startColor: UIColor = UIColor.redColor()
     @IBInspectable var endColor: UIColor = UIColor.greenColor()
     
-    //AppDelegate変数を呼び出す準備
-    let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//
-    
-
-    
-    //Realmインスタンスを生成
-//    let realm = try! Realm()
-//    let sleepDatas = try! Realm().objects(SleepLog).sorted("date", ascending: false)
-    
-//    var dateArray = [String]()
     var dateArray = [String]()
     var shakeCount = [Int]()
     
@@ -45,16 +34,6 @@ import RealmSwift
         
         var stringDate: String
        
-        for sleepData in delegate.sleepDatas {
-            stringDate = dateFormatter.stringFromDate(sleepData.date)
-            dateArray.insert(stringDate, atIndex: 0)
-            shakeCount.insert(sleepData.shakecount, atIndex: 0)
-            
-            //条件分岐で7つだけにする
-            if dateArray.count > 6 {
-                break
-            }
-        }
         // グラデーション
         let width = rect.width
         let height = rect.height
