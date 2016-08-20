@@ -1,21 +1,14 @@
 import UIKit
 import RealmSwift
 
-
-class ChartViewController: UIViewController {
+class Chart2ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var graphView: GraphView!
     
     let realm = try! Realm()
     let diaryDatas = try! Realm().objects(SleepLog).sorted("date", ascending: false)
-    
-    @IBOutlet weak var myLabel: UILabel!
-    
-    @IBAction func clickButton(sender: AnyObject) {
-        myLabel.text = "こんにちわ"
-    }
-    
-    
-    
-    @IBOutlet weak var graphView: GraphView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +22,16 @@ class ChartViewController: UIViewController {
             }
         }
         graphView.setupPoints([10,2,3,4,3,2,1],days: ["8/7","8/8","8/9","8/10","8/11","8/12","8/13"])
+
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func changeSegument(sender: AnyObject) {
+    @IBAction func clickButton(sender: AnyObject) {
+        myLabel.text = "押してる"
     }
-    
 
 }
-

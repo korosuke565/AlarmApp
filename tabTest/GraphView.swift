@@ -1,9 +1,7 @@
 import UIKit
-import Foundation
 import RealmSwift
 
-@IBDesignable
-class GraphView: UIView {
+@IBDesignable class GraphView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -19,7 +17,7 @@ class GraphView: UIView {
     
     //AppDelegate変数を呼び出す準備
     let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-
+//
     
 
     
@@ -28,13 +26,14 @@ class GraphView: UIView {
 //    let sleepDatas = try! Realm().objects(SleepLog).sorted("date", ascending: false)
     
 //    var dateArray = [String]()
-    var dateArray = ["8/7","8/8","8/9","8/10","8/11","8/12","8/13"]
+    var dateArray = [String]()
     var shakeCount = [Int]()
     
     
     // グラフのプロットデータ設定用のメソッド
-    func setupPoints(points: [Int]) {
+    func setupPoints(points: [Int], days: [String]) {
         shakeCount = points
+        dateArray = days
         self.setNeedsDisplay()
     }
     
