@@ -201,7 +201,20 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kjb-Vf-gAE" customClass="GraphView" customModule="AlarmApp" customModuleProvider="target">
                                 <rect key="frame" x="40" y="112" width="240" height="185"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ShakeCount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkb-Mp-VgH">
+                                        <rect key="frame" x="15" y="16" width="66" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Vkb-Mp-VgH" secondAttribute="trailing" constant="159" id="2Ng-iZ-ALE"/>
+                                    <constraint firstItem="Vkb-Mp-VgH" firstAttribute="leading" secondItem="Kjb-Vf-gAE" secondAttribute="leading" constant="15" id="3sX-36-GZ3"/>
+                                    <constraint firstItem="Vkb-Mp-VgH" firstAttribute="top" secondItem="Kjb-Vf-gAE" secondAttribute="top" constant="16" id="OMf-7s-W9p"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                         <color key="value" red="0.86639586623239906" green="0.78917260906040088" blue="0.71863978813001628" alpha="1" colorSpace="calibratedRGB"/>
@@ -218,6 +231,9 @@
                                     <segment title="月"/>
                                     <segment title="年"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeSelect:" destination="gzZ-0T-gyR" eventType="valueChanged" id="JB5-tn-ohf"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -234,6 +250,7 @@
                     <tabBarItem key="tabBarItem" title="Chart" image="Chart" id="G9T-uN-SXb"/>
                     <connections>
                         <outlet property="graphView" destination="Kjb-Vf-gAE" id="bie-GO-tY3"/>
+                        <outlet property="segmentedControl" destination="6Vb-Za-3Fd" id="wmi-U0-lYo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ak-NG-h3N" userLabel="First Responder" sceneMemberID="firstResponder"/>

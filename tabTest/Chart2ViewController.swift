@@ -3,9 +3,9 @@ import RealmSwift
 
 class Chart2ViewController: UIViewController {
     
-    
-    @IBOutlet weak var myLabel: UILabel!
+
     @IBOutlet weak var graphView: GraphView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var dateArray = [String]()
     var shakeCount = [Int]()
@@ -44,8 +44,22 @@ class Chart2ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func clickButton(sender: AnyObject) {
-        myLabel.text = "押してる"
+    @IBAction func changeSelect(sender: AnyObject) {
+        let num = segmentedControl.selectedSegmentIndex
+        //switch文
+        switch num {
+            case 0:
+                print("週だよ")
+                graphView.setupPoints([10,2,3,4,3,2,1],days: ["8/7","8/8","8/9","8/10","8/11","8/12","8/13"])
+            case 1:
+//                graphView.setupPoints([10,2,3,4,3,2,1,10,2,3,4,3,2,1],days: ["8/7","8/8","8/9","8/7","8/8","8/9","8/10","8/11","8/12","8/13","8/14","8/15","8/16","8/17"])
+                graphView.setupPoints([10,2,3,4,3,2,1,10,2,3,4,3,2,1],days:[])
+            case 2:
+                print("年だよ")
+                graphView.setupPoints([10,24,30,40,30,100,1],days: ["8","9","10","11","12","1","2"])
+            default:
+                print("週だよ")
+                graphView.setupPoints([10,2,3,4,3,2,1],days: ["8/7","8/8","8/9","8/10","8/11","8/12","8/13"])
+        }
     }
-
 }
