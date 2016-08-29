@@ -161,27 +161,8 @@ import RealmSwift
         
         var maxData = shakeCount.maxElement()
         var minData = shakeCount.minElement()
-        //グラフの日付
         
-//        for i in 0...dateArray.count - 1 {
-//            let label = UILabel()
-//            label.text = String(dateArray[i])
-//            label.textColor = UIColor.whiteColor()
-//            label.font = UIFont.systemFontOfSize(9)
-//            
-//            //ラベルのサイズを取得
-//            let frame = CGSizeMake(250, CGFloat.max)
-//            let rect = label.sizeThatFits(frame)
-//            
-//            //ラベルの位置
-//            var lebelX = columnXPoint(i) - 8
-//            var labelY = height - bottomBorder + 20
-//            
-//            label.frame = CGRectMake(lebelX , labelY, rect.width, rect.height)
-//            self.addSubview(label)
-//        }
-
-//
+        //グラフの日付
         guard dateArray.count == 0 else {
             for i in 0...dateArray.count - 1 {
                 let label = UILabel()

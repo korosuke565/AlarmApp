@@ -46,7 +46,29 @@ class FirstViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print()
         
+        
+        //データベースから値を取り出す
+        let dataArray = try! Realm().objects(SleepLog).sorted("id", ascending: false)
+        print(dataArray)
+
+        
+        
+//        //ダミーデータの挿入
+//        for _ in 0...60 {
+//            let sleepLog = SleepLog()
+//            sleepLog.sleeptime = Int(arc4random() % 60000)
+//            sleepLog.shakecount = Int(arc4random() % 100)
+//            sleepLog.date = NSDate()
+//            if dataArray.count != 0 {
+//                sleepLog.id = dataArray.max("id")! + 1
+//            }
+//            try! realm.write{
+//                realm.add(sleepLog)
+//            }
+//        }
+    
     }
     
     func getNowTime() -> String {
