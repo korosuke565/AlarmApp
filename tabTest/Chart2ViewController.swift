@@ -68,6 +68,8 @@ class Chart2ViewController: UIViewController {
                 //月の場合はmemoriをいれない
                 labelInitialization()
                 graphView.setupPoints([10,2,3,4,3,2,1,10,2,3,4,3,2,1,7,8,9,7,8,9,60,11,1,13,14,50,16,17],days: [])
+            
+//                graphView.setupPoints([],days: [])
             case 2:
                 labelInitialization()
                 graphView.setupPoints([10,24,30,40,30,100,1],days: ["8","9","10","11","12","1","2","3","4","5","6","7"])
