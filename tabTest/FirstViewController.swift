@@ -46,7 +46,6 @@ class FirstViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print()
         
         
         //データベースから値を取り出す
@@ -57,7 +56,10 @@ class FirstViewController: UIViewController{
 //            let sleepLog = SleepLog()
 //            sleepLog.sleeptime = Int(arc4random() % 60000)
 //            sleepLog.shakecount = Int(arc4random() % 100)
-//            sleepLog.date = NSDate()
+////            sleepLog.date = NSDate()
+//            //一ヶ月後
+//            let now = NSDate()
+//            sleepLog.date = NSDate(timeInterval: 60*60*24*31, sinceDate: now)
 //            if dataArray.count != 0 {
 //                sleepLog.id = dataArray.max("id")! + 1
 //            }
@@ -70,7 +72,7 @@ class FirstViewController: UIViewController{
 //            realm.deleteAll()
 //        }
         
-        print(dataArray)
+//        print(dataArray)
     
     }
     

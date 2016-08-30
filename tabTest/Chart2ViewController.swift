@@ -1,5 +1,6 @@
 import UIKit
 import RealmSwift
+import PySwiftyRegex
 
 class Chart2ViewController: UIViewController {
     
@@ -20,6 +21,40 @@ class Chart2ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        var stringDate: String
+//        for sleepData in sleepDatas {
+//            dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
+//            dateFormatter.dateFormat = "MM/dd"
+//            stringDate = dateFormatter.stringFromDate(sleepData.date)
+//            dateArray.insert(stringDate, atIndex: 0)
+//            shakeCount.insert(sleepData.shakecount, atIndex: 0)
+//            
+//            //条件分岐で7つだけにする
+//            if dateArray.count > 6 {
+//                break
+//            }
+//        }
+        //正規表現の練習
+        let regex = re.compile("[\\+\\-\\*/]")
+        let test = regex.split("1+2-3*4/5")
+        print(test)
+        
+        dataFromDB()
+
+        if shakeCount == [] {
+            graphView.setupPoints([],days: [])
+        } else {
+            graphView.setupPoints(shakeCount,days: dateArray)
+        }
+    }
+
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func dataFromDB(num:Int = 6) {
         var stringDate: String
         for sleepData in sleepDatas {
             dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
@@ -29,21 +64,17 @@ class Chart2ViewController: UIViewController {
             shakeCount.insert(sleepData.shakecount, atIndex: 0)
             
             //条件分岐で7つだけにする
-            if dateArray.count > 6 {
+            if dateArray.count > num {
                 break
             }
+            
+//            print(stringDate)
+            
+            if num != 6 {
+                print("test")
+            
+            }
         }
-
-        if shakeCount == [] {
-            graphView.setupPoints([],days: [])
-        } else {
-            graphView.setupPoints(shakeCount,days: dateArray)
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func labelInitialization() {

@@ -1,0 +1,10 @@
+framework module PySwiftyRegex {
+  umbrella header "PySwiftyRegex.h"
+
+  export *
+  module * { export * }
+}
+
+module PySwiftyRegex.Swift {
+    header "PySwiftyRegex-Swift.h"
+}
