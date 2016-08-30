@@ -30,12 +30,6 @@ import RealmSwift
     
     override func drawRect(rect: CGRect) {
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
-        dateFormatter.dateFormat = "MM/dd"
-        
-        var stringDate: String
-       
         // グラデーション
         let width = rect.width
         let height = rect.height
@@ -124,6 +118,8 @@ import RealmSwift
             
         }
         
+        
+        
         // ドットの描画
         func graphDots() {
             for i in 0..<shakeCount.count {
@@ -138,6 +134,7 @@ import RealmSwift
                 circle.fill()
             }
         }
+        
         
         //横線
         func holizontalLine() {
@@ -165,6 +162,27 @@ import RealmSwift
             color.setStroke()
             linePath.lineWidth = 1.0
             linePath.stroke()
+        }
+        
+        //グラフタイトル
+        func graphTitle(title: String) {
+            let label = UILabel()
+            label.text = title
+            label.textColor = UIColor.whiteColor()
+            label.font = UIFont.systemFontOfSize(15)
+            
+            //ラベルのサイズを取得
+            let frame = CGSizeMake(250, CGFloat.max)
+            let rect = label.sizeThatFits(frame)
+            
+            //ラベルの位置
+            let lebelX = CGFloat(20)
+            let labelY = CGFloat(30)
+            
+            label.frame = CGRectMake(lebelX , labelY, rect.width, rect.height)
+            
+            self.addSubview(label)
+        
         }
         
         //グラフの日付
@@ -198,5 +216,11 @@ import RealmSwift
                 return
             }
         }
+        lineGraph()
+        graphDots()
+        holizontalLine()
+        graphTitle("ShakeCount")
+        graphDate()
+        
     }
 }

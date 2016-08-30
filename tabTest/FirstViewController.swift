@@ -51,9 +51,6 @@ class FirstViewController: UIViewController{
         
         //データベースから値を取り出す
         let dataArray = try! Realm().objects(SleepLog).sorted("id", ascending: false)
-        print(dataArray)
-
-        
         
 //        //ダミーデータの挿入
 //        for _ in 0...60 {
@@ -68,6 +65,8 @@ class FirstViewController: UIViewController{
 //                realm.add(sleepLog)
 //            }
 //        }
+        
+        print(dataArray)
     
     }
     
