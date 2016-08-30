@@ -20,8 +20,8 @@ import RealmSwift
     
     
     // グラフのプロットデータ設定用のメソッド
-    func setupPoints(points: [Int], days: [String]?) {
-        shakeCount = points
+    func setupPoints(points: [Int]?, days: [String]?) {
+        shakeCount = points!
         if days != nil  {
              dateArray = days!
         }
@@ -185,6 +185,28 @@ import RealmSwift
         
         }
         
+        //データがない時のメッセージ
+        func initialGraphMessage(title: String) {
+            let label = UILabel()
+            label.text = title
+            label.textColor = UIColor.whiteColor()
+            label.font = UIFont.systemFontOfSize(20)
+            
+            //ラベルのサイズを取得
+            let frame = CGSizeMake(250, CGFloat.max)
+            let rect = label.sizeThatFits(frame)
+            
+            //ラベルの位置
+            let lebelX = width / 2 - 90
+            let labelY = height / 2 - 10
+            
+            label.frame = CGRectMake(lebelX , labelY, rect.width, rect.height)
+            
+            self.addSubview(label)
+            
+        }
+
+        
         //グラフの日付
         func graphDate() {
             guard dateArray.count == 0 else {
@@ -216,11 +238,15 @@ import RealmSwift
                 return
             }
         }
-        lineGraph()
-        graphDots()
-        holizontalLine()
-        graphTitle("ShakeCount")
-        graphDate()
-        
+        //もしデータがなかったらという条件式を書く
+        if shakeCount.count == 0 {
+            initialGraphMessage("データを登録しよう!")
+        } else {
+            lineGraph()
+            graphDots()
+            holizontalLine()
+            graphTitle("ShakeCount")
+            graphDate()
+        }
     }
 }

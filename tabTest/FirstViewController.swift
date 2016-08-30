@@ -52,8 +52,8 @@ class FirstViewController: UIViewController{
         //データベースから値を取り出す
         let dataArray = try! Realm().objects(SleepLog).sorted("id", ascending: false)
         
-//        //ダミーデータの挿入
-//        for _ in 0...60 {
+        //ダミーデータの挿入
+//        for _ in 0...30 {
 //            let sleepLog = SleepLog()
 //            sleepLog.sleeptime = Int(arc4random() % 60000)
 //            sleepLog.shakecount = Int(arc4random() % 100)
@@ -64,6 +64,10 @@ class FirstViewController: UIViewController{
 //            try! realm.write{
 //                realm.add(sleepLog)
 //            }
+//        }
+        
+//        try! realm.write {
+//            realm.deleteAll()
 //        }
         
         print(dataArray)

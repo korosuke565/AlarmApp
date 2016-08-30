@@ -35,7 +35,7 @@ class Chart2ViewController: UIViewController {
         }
 
         if shakeCount == [] {
-            graphView.setupPoints([10,2,3,4,3],days: ["8/7","8/8","8/9","8/10","8/11"])
+            graphView.setupPoints([],days: [])
         } else {
             graphView.setupPoints(shakeCount,days: dateArray)
         }
@@ -60,7 +60,7 @@ class Chart2ViewController: UIViewController {
             case 0:
                 labelInitialization()
                 if shakeCount == [] {
-                    graphView.setupPoints([10,2,3,4,3],days: ["8/7","8/8","8/9","8/10","8/11"])
+                    graphView.setupPoints([],days: [])
                 } else {
                     graphView.setupPoints(shakeCount,days: dateArray)
             }
