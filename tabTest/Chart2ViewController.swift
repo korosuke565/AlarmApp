@@ -91,6 +91,10 @@ class Chart2ViewController: UIViewController {
         }
     }
     
+    func dataInitialization() {
+        dateArray = []
+        shakeCount = []
+    }
     
     @IBAction func changeSelect(sender: AnyObject) {
         let num = segmentedControl.selectedSegmentIndex
@@ -98,6 +102,9 @@ class Chart2ViewController: UIViewController {
         switch num {
             case 0:
                 labelInitialization()
+                dataInitialization()
+                dataFromDB()
+                print(dateArray)
                 if shakeCount == [] {
                     graphView.setupPoints([],days: [])
                 } else {
@@ -106,8 +113,8 @@ class Chart2ViewController: UIViewController {
             case 1:
                 //月の場合はmemoriをいれない
                 labelInitialization()
+                dataInitialization()
                 let num = sleepDatas.count
-                print(num)
                 dataFromDB(num)
                 if shakeCount == [] {
                     graphView.setupPoints(shakeCount, days: dateArray)
@@ -116,9 +123,18 @@ class Chart2ViewController: UIViewController {
                 }
             case 2:
                 labelInitialization()
+                dataInitialization()
                 graphView.setupPoints([10,24,30,40,30,100,1],days: ["8","9","10","11","12","1","2","3","4","5","6","7"])
             default:
-                graphView.setupPoints([10,2,3,4,3],days: ["8/7","8/8","8/9","8/10","8/11"])
+                labelInitialization()
+                dataInitialization()
+                dataFromDB()
+                if shakeCount == [] {
+                    graphView.setupPoints([],days: [])
+                } else {
+                    graphView.setupPoints(shakeCount,days: dateArray)
+            }
+
         }
     }
 }
