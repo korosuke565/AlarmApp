@@ -34,10 +34,7 @@ class Chart2ViewController: UIViewController {
 //                break
 //            }
 //        }
-        //正規表現の練習
-        let regex = re.compile("[\\+\\-\\*/]")
-        let test = regex.split("1+2-3*4/5")
-        print(test)
+        
         
         dataFromDB()
 
@@ -56,6 +53,7 @@ class Chart2ViewController: UIViewController {
     
     func dataFromDB(num:Int = 6) {
         var stringDate: String
+        var monthNum = "test"
         for sleepData in sleepDatas {
             dateFormatter.locale = NSLocale(localeIdentifier: "en_US")
             dateFormatter.dateFormat = "MM/dd"
@@ -67,12 +65,22 @@ class Chart2ViewController: UIViewController {
             if dateArray.count > num {
                 break
             }
-            
-//            print(stringDate)
-            
-            if num != 6 {
-                print("test")
-            
+
+            if num > 29 {
+                print(stringDate)
+                let regex = re.compile("/")
+                let test = regex.split(stringDate)
+                if monthNum == test[0] || monthNum ==  "test" {
+                    print("same number")
+                } else {
+                    print("else number")
+                    dateArray.removeFirst()
+                    shakeCount.removeFirst()
+                    print(dateArray)
+                    break
+                }
+                monthNum = test[0]!
+
             }
         }
     }
@@ -98,9 +106,14 @@ class Chart2ViewController: UIViewController {
             case 1:
                 //月の場合はmemoriをいれない
                 labelInitialization()
-                graphView.setupPoints([10,2,3,4,3,2,1,10,2,3,4,3,2,1,7,8,9,7,8,9,60,11,1,13,14,50,16,17],days: [])
-            
-//                graphView.setupPoints([],days: [])
+                let num = sleepDatas.count
+                print(num)
+                dataFromDB(num)
+                if shakeCount == [] {
+                    graphView.setupPoints(shakeCount, days: dateArray)
+                } else {
+                    graphView.setupPoints(shakeCount, days: [])
+                }
             case 2:
                 labelInitialization()
                 graphView.setupPoints([10,24,30,40,30,100,1],days: ["8","9","10","11","12","1","2","3","4","5","6","7"])
