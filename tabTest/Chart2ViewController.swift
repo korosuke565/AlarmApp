@@ -104,15 +104,29 @@ class Chart2ViewController: UIViewController {
             shakeCount = []
             for i in uniqueMonthList {
                 maxDict[i] = yearDict[i]?.maxElement()
-                dateArray.append(String(i))
+//                dateArray.append(String(i))
             }
             var keys : Array = Array(maxDict.keys)
             keys.sortInPlace({$0 < $1})
+            
             for sortKey in keys {
-                if maxDict[sortKey] != 0 {
+                if maxDict[sortKey] == 0 {
+                    shakeCount.append(0)
+                    dateArray.append("none")
+                } else {
                     shakeCount.append(maxDict[sortKey]!)
+                    dateArray.append(String(sortKey))
                 }
             }
+            print(shakeCount)
+            print(dateArray)
+            
+            
+//            for sortKey in keys {
+//                if maxDict[sortKey] != 0 {
+//                    shakeCount.append(maxDict[sortKey]!)
+//                }
+//            }
         }
     }
 
