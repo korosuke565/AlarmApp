@@ -2,10 +2,13 @@
 import UIKit
 import MediaPlayer
 import AVFoundation
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MPMediaPickerControllerDelegate {
-
+    
+    let realm = try! Realm()
+    let sleepDatas = try! Realm().objects(SleepLog).sorted("date", ascending: false)
     var window: UIWindow?
     var selectedMusic = "test"
     var player = MPMusicPlayerController()

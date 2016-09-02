@@ -13,6 +13,7 @@ class GameViewController: UIViewController {
     let realm = try! Realm()
     let dataArray = try! Realm().objects(SleepLog).sorted("date", ascending: false)
 
+
     
     //残り時間
     var timeLeft : Float = 10

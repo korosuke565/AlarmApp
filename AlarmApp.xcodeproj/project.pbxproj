@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B51316F3A1ACF119DF08242 /* Pods_AlarmApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D4BF94E57937B7F0BD5881 /* Pods_AlarmApp.framework */; };
+		B11D45E81D75588500E685C4 /* PySwiftyRegex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11D45E71D75588500E685C4 /* PySwiftyRegex.framework */; };
+		B11D45E91D75588500E685C4 /* PySwiftyRegex.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B11D45E71D75588500E685C4 /* PySwiftyRegex.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B128BF811D55B3D40067C1E5 /* 天使の夢.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF801D55B3D40067C1E5 /* 天使の夢.mp3 */; };
 		B128BF831D55B3DA0067C1E5 /* 夢見るクジラ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF821D55B3DA0067C1E5 /* 夢見るクジラ.mp3 */; };
 		B128BF851D55B3DF0067C1E5 /* 南十字星.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF841D55B3DF0067C1E5 /* 南十字星.mp3 */; };
@@ -18,9 +20,10 @@
 		B128BF8F1D55B3FC0067C1E5 /* 春の予感.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B128BF8E1D55B3FC0067C1E5 /* 春の予感.mp3 */; };
 		B128C02F1D5873A40067C1E5 /* TableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B128C02E1D5873A40067C1E5 /* TableViewCell2.swift */; };
 		B128C04F1D5955650067C1E5 /* TableViewCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B128C04E1D5955650067C1E5 /* TableViewCell3.swift */; };
+		B1780B501D66B28C00EFA992 /* Chart2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1780B4F1D66B28C00EFA992 /* Chart2ViewController.swift */; };
+		B1A134A11D5C638E0035F9D5 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A134A01D5C638E0035F9D5 /* GraphView.swift */; };
 		B1AC1C261C76A3FF0078EDA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C251C76A3FF0078EDA0 /* AppDelegate.swift */; };
 		B1AC1C281C76A3FF0078EDA0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C271C76A3FF0078EDA0 /* FirstViewController.swift */; };
-		B1AC1C2A1C76A3FF0078EDA0 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AC1C291C76A3FF0078EDA0 /* ChartViewController.swift */; };
 		B1AC1C2D1C76A3FF0078EDA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1AC1C2B1C76A3FF0078EDA0 /* Main.storyboard */; };
 		B1AC1C2F1C76A3FF0078EDA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1AC1C2E1C76A3FF0078EDA0 /* Assets.xcassets */; };
 		B1AC1C321C76A3FF0078EDA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1AC1C301C76A3FF0078EDA0 /* LaunchScreen.storyboard */; };
@@ -31,10 +34,25 @@
 		B1DA630B1C7ED01C005EE71D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA630A1C7ED01C005EE71D /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B11D45EA1D75588500E685C4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B11D45E91D75588500E685C4 /* PySwiftyRegex.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		35A4598FBD9E91B651A83860 /* Pods-AlarmApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlarmApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlarmApp/Pods-AlarmApp.release.xcconfig"; sourceTree = "<group>"; };
 		454B4C5F471B0678CE07D45B /* Pods-AlarmApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlarmApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlarmApp/Pods-AlarmApp.debug.xcconfig"; sourceTree = "<group>"; };
 		66D4BF94E57937B7F0BD5881 /* Pods_AlarmApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlarmApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B11D45E71D75588500E685C4 /* PySwiftyRegex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PySwiftyRegex.framework; path = Carthage/Build/iOS/PySwiftyRegex.framework; sourceTree = "<group>"; };
 		B128BF801D55B3D40067C1E5 /* 天使の夢.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "天使の夢.mp3"; sourceTree = "<group>"; };
 		B128BF821D55B3DA0067C1E5 /* 夢見るクジラ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "夢見るクジラ.mp3"; sourceTree = "<group>"; };
 		B128BF841D55B3DF0067C1E5 /* 南十字星.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "南十字星.mp3"; sourceTree = "<group>"; };
@@ -45,10 +63,11 @@
 		B128BF8E1D55B3FC0067C1E5 /* 春の予感.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "春の予感.mp3"; sourceTree = "<group>"; };
 		B128C02E1D5873A40067C1E5 /* TableViewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell2.swift; sourceTree = "<group>"; };
 		B128C04E1D5955650067C1E5 /* TableViewCell3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell3.swift; sourceTree = "<group>"; };
+		B1780B4F1D66B28C00EFA992 /* Chart2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart2ViewController.swift; sourceTree = "<group>"; };
+		B1A134A01D5C638E0035F9D5 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		B1AC1C221C76A3FF0078EDA0 /* AlarmApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AC1C251C76A3FF0078EDA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1AC1C271C76A3FF0078EDA0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		B1AC1C291C76A3FF0078EDA0 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		B1AC1C2C1C76A3FF0078EDA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1AC1C2E1C76A3FF0078EDA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1AC1C311C76A3FF0078EDA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B51316F3A1ACF119DF08242 /* Pods_AlarmApp.framework in Frameworks */,
+				B11D45E81D75588500E685C4 /* PySwiftyRegex.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +121,7 @@
 		B1AC1C191C76A3FF0078EDA0 = {
 			isa = PBXGroup;
 			children = (
+				B11D45E71D75588500E685C4 /* PySwiftyRegex.framework */,
 				B1AC1C241C76A3FF0078EDA0 /* AlarmApp */,
 				B1AC1C231C76A3FF0078EDA0 /* Products */,
 				C34C9DA2DCAB2BD01B6E1B02 /* Frameworks */,
@@ -124,7 +145,8 @@
 				B1AC1C271C76A3FF0078EDA0 /* FirstViewController.swift */,
 				B1B7B85E1C7DAE1F00EB293C /* ModalViewController.swift */,
 				B1DA630A1C7ED01C005EE71D /* GameViewController.swift */,
-				B1AC1C291C76A3FF0078EDA0 /* ChartViewController.swift */,
+				B1780B4F1D66B28C00EFA992 /* Chart2ViewController.swift */,
+				B1A134A01D5C638E0035F9D5 /* GraphView.swift */,
 				B1AC1C391C76A61D0078EDA0 /* SettingsViewController.swift */,
 				B128C02E1D5873A40067C1E5 /* TableViewCell2.swift */,
 				B128C04E1D5955650067C1E5 /* TableViewCell3.swift */,
@@ -160,6 +182,8 @@
 				B1AC1C201C76A3FF0078EDA0 /* Resources */,
 				4C1397A9B4E97AB35DBDE880 /* 📦 Embed Pods Frameworks */,
 				0F0E76CE74DA1EBDB6B4C075 /* 📦 Copy Pods Resources */,
+				B11D45EA1D75588500E685C4 /* Embed Frameworks */,
+				B11D45EB1D7558DE00E685C4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -257,6 +281,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlarmApp/Pods-AlarmApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B11D45EB1D7558DE00E685C4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/PySwiftyRegex.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/Carthage copy-frameworks";
+		};
 		BF65EE615933469CC7FB72A2 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -280,10 +318,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B128C02F1D5873A40067C1E5 /* TableViewCell2.swift in Sources */,
-				B1AC1C2A1C76A3FF0078EDA0 /* ChartViewController.swift in Sources */,
 				B1B7B85F1C7DAE1F00EB293C /* ModalViewController.swift in Sources */,
 				B1AC1C261C76A3FF0078EDA0 /* AppDelegate.swift in Sources */,
+				B1780B501D66B28C00EFA992 /* Chart2ViewController.swift in Sources */,
 				B1B369901C911B7A00BFD7CD /* SleepLog.swift in Sources */,
+				B1A134A11D5C638E0035F9D5 /* GraphView.swift in Sources */,
 				B1AC1C3A1C76A61D0078EDA0 /* SettingsViewController.swift in Sources */,
 				B1DA630B1C7ED01C005EE71D /* GameViewController.swift in Sources */,
 				B1AC1C281C76A3FF0078EDA0 /* FirstViewController.swift in Sources */,
@@ -399,6 +438,10 @@
 			baseConfigurationReference = 454B4C5F471B0678CE07D45B /* Pods-AlarmApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = tabTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tsuyoshi.tonobe.tabTest;
@@ -411,6 +454,10 @@
 			baseConfigurationReference = 35A4598FBD9E91B651A83860 /* Pods-AlarmApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = tabTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tsuyoshi.tonobe.tabTest;
